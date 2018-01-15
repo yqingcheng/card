@@ -1,0 +1,72 @@
+<!--pages/personal/personal.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+</view>
+<!--  -->
+<view class="" >
+  <view class="per">
+    <view class="perlist">
+      <view class="perlistjin">可提现金额</view>
+      <view class="perlisted">
+          <image class="perlistedimg" src="/image/1_03.jpg"></image>
+          {{list.withdraw_deposit}}
+        </view>
+      <view bindtap="deposit" class="perlistm">提现</view>
+    </view>
+    <view class="perlist">
+      <view class="perlistjin">累计提成金额</view>
+      <view class="perlisted">
+        <image class="perlistedimg" src="/image/1_06.jpg"></image>
+        {{list.grand_total}}
+      </view>
+      <view  class="perlistm">
+          <navigator url="/pages/deal/deal?wechat_user_id={{list.id}}"> 明细</navigator>  
+      </view>
+    </view>
+  </view>
+<view class="xian"></view>
+  <view class="listfe">
+    <image class="listfelist" src="/image/1_10.jpg"></image> 
+    <view class="tit">使用期限</view> 
+    <view class="conti">剩余{{list.time_remaining}}天</view>
+  </view>
+  <view class="listfe"> 
+    <navigator url="/pages/distribution/distribution">
+        <image class="listfelist" src="/image/10-13.jpg"></image> 
+        <view class="tit">我的分销</view>
+    </navigator>
+  </view>  
+  <view class="listfe">
+    <navigator url="/pages/group/group">
+      <image class="listfelist" src="/image/10-15.jpg"></image>
+      <view class="tit">用户交流群</view> 
+    </navigator>
+  </view>   
+  <view class="listfe"> 
+    <image class="listfelist" src="/image/10-17.jpg"></image> 
+      <view class="tit">制作锁屏壁纸</view> 
+  </view>  
+</view>   
+<image src="http://card.xiaoniren.cn{{list.qrcode}}" class="icon-code"></image>
+<view wx:if="{{time_remaining==0}}" class="btn-share" bindtap="fenxiang">
+  分享
+  <image class="fenxiang"  src="/image/fenxiang.png"></image>
+</view>
+<button wx:else open-type="share" class="btn-share" bindtap="fenxiang">
+  分享
+  <image class="fenxiang"  src="/image/fenxiang.png"></image>
+</button>
+<!--  -->
+<view class="xdeposit {{lopen?'display_show':'display_none'}}">
+  <view class="depositcon">
+    <view bindtap="guanbi" class="guanbi"><image src="/image/close.png"></image></view>
+    <view class="deposit">提现金额</view>
+    <input bindfocus="input_actvie" bindblur="input_normal" class="personage_i {{input_num == 0?'input_normal':'input_active'}}" name="grand_total" value="{{arrtet}}" 
+    bindinput="grand_total" type="number"  placeholder="请输入金额"/>
+    <view class="deposit">当前余额 ¥ {{list.withdraw_deposit}}</view>
+    <button bindtap="depositsub" class="depositsub">确认提现</button>
+  </view>
+</view>

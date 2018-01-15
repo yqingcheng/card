@@ -1,0 +1,39 @@
+<!--pages/firmminempdetails/firmminempdetails.wxml-->
+<!-- 列表 -->
+<view class="">
+<view class="cardse EnterpriseInfo">
+    <image class="sign" src="/image/jiao_03.jpg"></image>
+    <view class="cardseimg"><image src="http://card.xiaoniren.cn{{firmlist.logo}}"></image></view>
+    <view class="cardser">
+      <view class="cardsera">{{firmlist.name}}</view>
+      <view class="cardsera">
+        <view class=""><image src="/image/name.png"></image><text>{{firmlist.username}}</text></view>
+        <view class=""><image src="/image/2_03.jpg"></image><text>{{firmlist.registered_capital}}</text></view>
+      </view>
+      <view class="cardserb cardserbb"><image src="/image/tel.png"></image> <text> {{firmlist.phone}}</text></view>
+      <view class="cardserb cardserbb"><image src="/image/yew4.png"></image> <text> {{firmlist.business}}</text></view>
+    </view>
+    <view class="intro">{{firmlist.title}}</view>
+    <view class="liang">
+      <view class="lianglist"><image class="sshoucimg" src="/image/k.png"></image> <text> {{firmlist.clicks}}人看过</text></view>
+      <view class="lianglist"><image class="sshoucimg" src="/image/s.png"></image> <text> {{firmlist.collect}}收藏</text></view>
+    </view>
+</view>
+<view class="conz"></view>
+<view class="listfe"> <view class="tit">主营</view> <view class="conti">{{firmlist.business}}</view> </view>
+<view class="listfe"> <view class="tit">地区</view> <view class="conti">{{firmlist.company_address}}</view> </view>
+<view class="listfe"> <view class="tit">行业</view> <view class="conti">{{firmlist.company_business}}</view> </view>
+<view class="listfe"> <view class="tit">融资情况</view> <view class="conti">{{firmlist.financing_situation}}</view> </view>
+<view class="conz"></view>
+<view class="gsjj">公司简介</view>
+  <view class="title">{{listti[0].title}}</view>
+<view class="" wx:for="{{listti}}">
+      <image class="gsimg" mode="widthFix" src="https://card.xiaoniren.cn{{item.image}}"></image>
+</view>
+  <view class="content">{{listti[0].content}}</view>
+
+ <!-- <button class="btn_collect"  bindtap="make">加入收藏</button> -->
+<button class="btn_make" bindtap="zhifu">
+    点击制作
+</button>
+</view>

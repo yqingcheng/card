@@ -1,0 +1,5 @@
+<!--pages/group/group.wxml-->
+<view class="groupimg">
+  <image src="http://card.xiaoniren.cn{{group.img}}"></image>
+  <view class="group">手机截屏—打开相册—识别二维码</view>
+</view>

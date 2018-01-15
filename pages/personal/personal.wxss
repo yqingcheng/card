@@ -1,0 +1,117 @@
+/* pages/personal/personal.wxss */
+
+.xdeposit{width: 100%;height: 100%;position: absolute;top: 0;left:0;z-index: 100;
+  background: #eee;
+}
+.depositcon{width: 90%;height: auto;margin-left: 5%;margin-top: 100px;}
+.deposit{font-size: 14px;color: #0c0c0c;line-height: 30px;}
+.personage_i{border: 1px solid #0c0c0c;height: 36px;line-height: 36px;border-radius:5px; 
+  padding:0 10rpx;
+   }
+.input_active{
+  text-align: left;
+}
+.input_normal{
+  text-align: right;
+}
+.depositsub{width: 100%;background: green;color: #fff;}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.guanbi{width: 20px;height: 20px;position: absolute;right: 10px;top:10px; }
+.guanbi image{width: 20px;height: 20px;}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.container{
+  animation: changeBg 20s infinite;
+  background-color:#ed5564; 
+}
+@keyframes changeBg{
+  0%{background-color:#ED5564;}
+  10%{background-color:#FB6E52;}
+  20%{background-color:#FFCE55;}
+  30%{background-color:#A0D468;}
+  40%{background-color:#48CFAE;}
+  50%{background-color:#4FC0E8;}
+  60%{background-color:#5D9CEC;}
+  70%{background-color:#AC92ED;}
+  80%{background-color:#EC87BF;}
+  90%{background-color:#ED5564;}
+}
+.userinfo-avatar{
+  animation: memberInfoDow 1s ease-in;
+  position: relative;
+  top:0;
+}
+@keyframes memberInfoDow{
+  0% { top: -430px;}
+  30% { top: -230px}
+  75% { top: 15px}
+  85% { top: -20px}
+  95% { top: 10px}
+  100% { top: 0px;}
+}
+.display_show{
+    display: block;
+}
+.display_none{
+    display: none;
+}
+.userinfo-nickname {
+  color: #000;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.per{width: 100%;height: auto;padding-top:10px;}
+.perlist{width: 50%;float: left;text-align: center;}
+.listfe{width: 100%;height: 50px;line-height: 50px;border-bottom: 1px solid #b8b8b8;overflow: hidden;
+float: left;}
+.listfe view{float: left;}
+.fuzhi{width: 16%;text-align: center;color: #fff;font-size: 12px;background: #138ef8;
+height: 20px;line-height: 20px;border-radius: 6px;margin-top: 16px;}
+.conz{width: 100%;height: 10px;background: #b8b8b8;float: left;}
+.btn-share{
+  width:75px;
+  padding:0;
+  height:30px;
+  line-height:30px;
+  font-size:14px;
+  color: #000000;
+  position: absolute;
+  top: 8px;right: 4%;
+  border: none;
+  background: none;
+}
+.icon-code{
+  width:84px;
+  height:84px;
+  background-color:#eee;
+  border-radius:50%;
+  position: absolute;
+  top: 43px;
+  right: 4%;z-index: 10;
+  opacity:0.5;
+-ms-filter:"alpha(opacity=50)";
+filter:alpha(opacity=50);
+
+}
+.icon-code{border-radius:0;}
+.fenxiang{width: 24px;height: 24px;float: right;margin-top: 3px;margin-right: 6%;}
+.perlistjin{font-size: 14px;color: #050505;}
+.perlisted{color: #de1e1b;font-size: 16px;font-weight: bold;margin-top: 13px;text-align: left;}
+.perlistm{background: #138ef8;color: #fff;font-size: 14px;width: 60px;
+text-align: center;line-height: 25px;border-radius: 6px;margin-top: 14px;margin-left: 34%;}
+.xian{width: 100%;background: #f2f2f2;height: 10px;float: left;margin-top: 20px;}
+.tit{font-size: 16px;color: #0c0c0c;width: 28%;}
+.conti{color: #a0a0a0;font-size: 16px;width: 27%;}
+.perlistedimg{width: 24px;height: 24px;float: left;margin-top: -2px;
+margin-left: 36%;margin-right: 10px;}
+.listfelist{width: 24px;height: 24px;float: left;margin-top: 14px;margin-left: 4%;margin-right: 10px;}

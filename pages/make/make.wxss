@@ -1,0 +1,127 @@
+/* pages/make/make.wxss */
+.bj_shade{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  box-sizing: border-box;
+}
+.progress{
+  width: 100%;
+  padding: 60rpx 0;
+  border: 30rpx solid transparent;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left:0%;
+  margin-top: -60rpx;
+  background: #fff;
+}
+.make{width: 100%;height: auto;border-bottom:1px solid #9f9f9f;line-height: 34px;overflow: hidden;}
+.makelist{float: left;width: 100%;text-align: center;font-size: 16px;color: #343434;
+line-height: 34px; }
+.red{flex:1;border-bottom:2px solid #1a79f9;line-height: 34px;height: 35px;}
+.show{display:block;}
+.hidden{display:none;}
+/* 个人 */
+.personage{width: 92%;margin-left: 4%;margin-top: 20px;overflow: hidden;}
+.personage_img{width: 32%;float: left;}
+.pe_img{width: 100%;height: 113px;}
+.personage_in{width: 60%;float: right; }
+.personage_i{border-bottom:1px solid #9f9f9f; height: 50px;font-size: 14px;color: #a0a0a0;}
+.personagex{width: 100%;line-height: 50px;float: left;text-align: center;font-weight: bold;
+font-size: 18px;}
+.personagec{width: 100%;height: 9px;background: #f1f1f1;float: left;}
+.personagegs{width: 100%;float: left;}
+.personagegs text{float: left;margin-left: 4%;margin-right: 3%;font-size: 14px;color: #0d0d0d;
+width: 18%;text-align: right;}
+.personagegs .musn_write{color: #ff3d49;width: auto;margin: 0;}
+.personage_gs{width: 100%;height: auto;overflow: hidden;line-height: 50px;
+border-bottom:1px solid #f1f1f1;}
+.personage_gs input{height: 50px;font-size: 14px;text-align: center;width: 70%;}
+.personage_mo{font-size: 14px;width: 100%;height: auto;overflow: hidden;
+line-height: 50px;text-align: center;color: #8eb9f5;}
+
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #fff;
+}
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+}
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+}
+input::-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #fff;
+}
+
+.display_show{
+    display: block;
+}
+.display_none{
+    display: none;
+}
+
+.liopen_show{
+    display: block;
+}
+.liopen_none{
+    display: none;
+}
+
+.ryopen_show{
+    display: block;
+}
+.ryopen_none{
+    display: none;
+}
+
+.conopen_show{
+    display: block;
+}
+.conopen_none{
+    display: none;
+}
+
+
+.display_showw{
+    display: block;
+}
+.display_nonee{
+    display: none;
+}
+.display_showg{
+    display: block;
+}
+.display_noneg{
+    display: none;
+}
+.tianjia{width: 100%;height: auto;text-align: center;float: left;}
+.tianjia image{width: 100px;height: 100px;margin-top: 20px;}
+.beizhu{width: 100%;height: auto;font-size: 12px;margin-top: 10px;
+text-align: center;float: left;margin-bottom: 10px;
+}
+.beizhu text{color: #ff3d49}
+.btn_login{width: 92%;background: #108df9;color: #fff;margin-top: 40px;margin-bottom: 40px;}
+.personage_is{border-bottom:1px solid #9f9f9f; height: 38px;font-size: 14px;color: #a0a0a0;}
+picker{float: right;width:56%;margin-top: 7px;}
+.picker{line-height: 2rem;font-size: 14px;color: #a0a0a0;}
+.zizhi{width: 92%;height: auto;margin-left: 4%;padding-top: 15px;float: left;padding-bottom: 20px;}
+.zizhia{width: 48%;float: left;}
+.zizhia image{width: 100%;}
+.zizhib{width: 48%;float: right;}
+.zizhib image{width: 100%;height: 118px;}
+.gepersonage{width: 100px;height: 100px;}
+.delimg{width: 20px;height: 20px;position: absolute;top: 0%;right: 10%;z-index: 100;}
+.Delimg{position: relative;width: 33.33%;float: left;text-align: center;margin-top: 10px;}
+.Delimg .img{width: 100%;}
+.personage_back{width: 100%;height: auto;text-align: center;}
+.personagevideo{width: 92%;}
+.personag_evideo{margin-top: 10px;width: 100%;height: auto;float: left;}

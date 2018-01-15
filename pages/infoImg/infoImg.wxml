@@ -1,0 +1,14 @@
+
+<template name="infoImg">
+    <view>
+        <view class="infoImg_tit">
+            {{title}}
+        </view>
+        <view class="img_wrap" wx:if="{{img.length>0}}">
+            <image  wx:for="{{img}}" wx:for-item="imgUrl" mode="widthFix" src="https://card.xiaoniren.cn{{imgUrl}}"></image>
+        </view>
+        <view class="infoImg_cont">
+          {{content}}
+        </view>
+    </view>
+</template>

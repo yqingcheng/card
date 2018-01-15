@@ -1,0 +1,39 @@
+<!--pages/distribution/distribution.wxml-->
+<view class="distribution">
+  <view class="distributiontit">我的分销</view>
+   <view class="distributiongui">
+    <image class="kuai" src="/image/kuai.png"></image>
+    分销规则    
+  </view>
+  <view class="distcon">
+    <text>什么是推荐奖励？
+小泥人名片实行全民推广制度，每推荐一位名片使用者，即可获得推荐奖励，收益无上限，随时可以提现。
+ 
+如何绑定推荐关系？
+推荐关系有两种绑定方式
+1. 通过发名片，对方查看你的名片即绑定为你的直推用户，制作时将给你返利
+2. 通过分享小程序码，对方查看小程序即绑定为你的直推用户，制作时将给你返利
+ 
+如何获得收益？
+每直推一位用户，一次性获利30元
+直推的用户再推荐用户，一次性获利15元
+即
+A推荐B，B制作名片，A立即获得30元收益
+B再推荐C，C制作名片，B立即获得30元收益，A作为B的推荐人再获得15元收益
+注：制作时没有推荐人时，不可补绑
+ 
+收益如何提现?
+获得推荐奖励后，自动放至可提现余额，用户可随时提现。</text>
+  </view>  
+</view>
+<view class="xian"></view>
+<view class="listfe"> 
+  <image class="listfelist" src="/image/1_10.jpg"></image>
+  <view class="tit">我的推荐人</view> 
+  <view class="conti">{{name.data}}</view>
+</view>
+<view class="listfe">
+  <image class="listfelist" src="/image/trl.png"></image>
+  <view class="tit">我下线人数</view>
+  <view class="conti">{{list.referrers}} <text>人</text> </view>
+</view>

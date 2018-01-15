@@ -1,0 +1,4 @@
+/* pages/deal/deal.wxss */
+.deal{font-size: 16px;width: 96%;margin-left: 2%;height: auto;overflow: hidden;margin-top: 10px;}
+.deal view{float: left;margin-left: 3%;}
+.dealcon{width: 100%;height: auto;text-align: center;color: #666;font-size: 12px;}

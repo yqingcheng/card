@@ -1,0 +1,21 @@
+
+<view class="zhifu {{open?'display_none':'display_show'}}" >
+  <view bindtap="close" class="close">
+    <image src="/image/close.png"></image>
+  </view>
+  <view class="poster">
+    <image mode="widthFix" src="/image/20171218151952.jpg"></image>
+  </view>
+  <view class="btn_loginn_po" wx:if="{{time_remaining>0}}">
+    <button class="btn_loginn"  formType="submit" bindtap="make">制作我的名片</button>
+  </view>
+  
+  <view class="btn_login_img" wx:else>
+    <button class="btn_login" data-userinfo="{{false}}" wx:if="{{userinfo}}"
+     formType="submit" bindtap="zhifu">制作我的名片(100元/年)</button>
+
+    <button class="getUserInfo" open-type="getUserInfo" wx:if="{{!userinfo}}"
+     bindgetuserinfo="userInfoHandler"> 获取用户信息 </button> 
+  </view>
+</view>
+

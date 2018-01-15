@@ -1,0 +1,75 @@
+<!--pages/minemp/minemp.wxml-->
+<!-- 海报 -->
+<view class="visiting" bindtap="poster">
+    <image class="visiting_img" mode="widthFix" src="/image/1205__02.jpg"></image>
+</view>
+<!-- 列表 -->
+<view class="cardse" wx:for="{{list}}">
+  <navigator url="/pages/minempdetails/minempdetails?id={{item.id}}&type=DeliveryInfo&self=true">
+    <view class="cardseimg"><image src="{{item.head_portrait}}"></image></view>
+    <view class="cardser">
+      <view class="cardsera">{{item.name}} <text> {{item.position}}</text></view>
+      <view class="cardserb"><image src="/image/tel.png"></image> <text> {{item.mobile}}</text></view>
+      <view class="cardserb"><image src="/image/dizhi.png"></image> <text> {{item.company_name}}</text></view>
+    </view>
+    <view class="intro">{{item.desc}}</view>
+  </navigator>    
+    <view class="liang">
+      <view class="lianglist"><image class="sshoucimg" src="/image/k.png"></image> <text> {{item.clicks}}人看过</text></view>
+      <view class="lianglist"><image class="sshoucimg" src="/image/s.png"></image> <text> {{item.collect}}收藏</text></view>
+    </view>
+  
+   <!-- <image data-index="{{item.id}}" data-idx="{{index}}" bindtap="showitem" class="sign" src="/image/jiao_03.jpg"></image>  -->
+    <!-- <view class="" wx:if="{{showArr[index]==0}}"></view> -->
+  <view class="zhaunfa" >
+    <view data-index="{{item.id}}" bindtap="amend" class="zhaunfalist {{open=='display_none'}}">
+      <image class="share" src="/image/bianji.png"></image> 编辑
+    </view>
+    <view data-index="{{item.id}}" bindtap="delete" class="zhaunfalist {{open=='display_none'}}">
+      <image class="share" src="/image/delete.png"></image> 删除
+    </view>
+     <view data-index="{{item.id}}" bindtap="sharelist" class="zhaunfalist {{open=='display_show'}}">
+      <image class="share" src="/image/fenxiang.png"></image> 分享
+      <button data-img="{{item.head_portrait}}" data-name="{{item.name}}" data-id="{{item.id}}" data-type="DeliveryInfo"  open-type="share"></button>
+    </view>
+  </view>
+
+</view>
+<!-- 公司 列表 -->
+<view class="cardse EnterpriseInfo " wx:for="{{EnterpriseInfo}}">
+  <navigator url="/pages/firmminempdetails/firmminempdetails?id={{item.id}}&type=DeliveryInfo">
+    <view class="cardseimg"><image src="http://card.xiaoniren.cn{{item.logo}}"></image></view>
+    <view class="cardser">
+      <view class="cardsera">{{item.name}}</view>
+      <view class="cardsera">
+        <view class=""><image src="/image/name.png"></image><text>{{item.username}}</text></view>
+        <view class=""><image src="/image/2_03.jpg"></image><text>{{item.registered_capital}}</text></view>
+      </view>
+      <view class="cardserb cardserbb"><image src="/image/tel.png"></image> <text> {{item.phone}}</text></view>
+      <view class="cardserb cardserbb"><image src="/image/yewu.png"></image> <text> {{item.business}}</text></view>
+    </view>
+    <view class="intro">{{item.title}}</view>
+  </navigator>    
+    <view class="liang">
+      <view class="lianglist"><image class="sshoucimg" src="/image/k.png"></image> <text> {{item.clicks}}人看过</text></view>
+      <view class="lianglist"><image class="sshoucimg" src="/image/s.png"></image> <text> {{item.collect}}收藏</text></view>
+    </view>
+  <image data-index="{{item.id}}" data-idx="{{index}}" bindtap="gsshow" class="sign" src="/image/jiao_03.jpg"></image>
+  <view class="zhaunfa" wx:if="{{showArr1[index]==0}}">
+    <view data-index="{{item.id}}" bindtap="sharelist" class="zhaunfalist {{open=='display_none'}}">
+      <image class="share" src="/image/fenxiang.png"></image> 分享
+      <button data-name="{{item.name}}" data-id="{{item.id}}" data-type="EnterpriseInfo" open-type="share"></button>
+    </view>
+    <view data-index="{{item.id}}" bindtap="qamend" class="zhaunfalist {{open=='display_none'}}">
+      <image class="share" src="/image/bianji.png"></image> 编辑
+    </view>
+    <view data-index="{{item.id}}" bindtap="qdelete" class="zhaunfalist {{open=='display_none'}}">
+      <image class="share" src="/image/delete.png"></image> 删除
+    </view>
+  </view>
+</view>
+<!-- 自作 -->
+ <view class="make" bindtap="make">
+    <image class="make_img" src="/image/1205__03.jpg"></image>
+    <view class="make_tit">点击制作新名片</view>
+</view> 

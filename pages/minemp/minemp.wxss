@@ -1,0 +1,98 @@
+/* pages/minemp/minemp.wxss */
+.visiting{width: 100%;}
+.visiting_img{width: 100%;}
+.make{width: 92%;height: auto;overflow: hidden;text-align: center;
+border: 1px dotted #bdbdbd;margin-top: 20px;
+border-radius:10px;margin-left: 4%;float:left;font-size: 16px;color: #343434;margin-bottom: 50px; }
+.make_img{width: 60px;height: 60px;margin-top: 38px;margin-bottom: 25px;}
+.make_tit{margin-bottom: 16px;}
+
+.cardse{width: 92%;float: left;margin-left: 4%;height: auto;
+  -webkit-box-shadow: #b8b8b8 0px 0px 4px;
+  -moz-box-shadow: #b8b8b8 0px 0px 4px;
+  box-shadow: #b8b8b8 0px 0px 4px;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-bottom: 6px;
+  position: relative;
+}
+.cardseimg{width: 30%;float: left;margin-right: 5%;margin-top: 7%;margin-left: 5%;}
+.cardseimg image{width: 100%;height: 100px;}
+.cardser{width: 60%;float: left;overflow: hidden;height: auto;margin-top: 7%;}
+.cardser image{width: 22px;height: 22px;float: left;margin-top: 5px;margin-right: 16px;}
+.intro{width: 88%;float: left;
+font-size: 12px;color: #0f8ef9;
+overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;margin-left: 5%;margin-top: 19px;}
+.cardsera{font-size: 18px;color: #424242;font-weight: bold;margin-bottom: 17px;}
+.cardsera text{font-size: 15px;color: #656565;}
+.cardsera view image{float: left;margin-top: 0;}
+.cardsera view {width: 100%;float: left;margin-top: 6px;}
+.cardserb{color: #424242;font-size: 14px;line-height: 30px;width: 100%;overflow: hidden;}
+.liang{width: 90%;float: left;height: auto;overflow: hidden;border-top: 1px dotted #a0a0a0;
+margin-top: 20px;padding-top: 10px;margin-left: 5%;}
+.liang image{width: 22px;height: 22px;}
+.lianglist{float: left;width: 50%;font-size: 12px;color: #989898;text-align: center;
+overflow: hidden;}
+.lianglist .sshouc{width: 80%;height: 40px;}
+.sshoucimg{float: left;margin-top: 8px;margin-left: 20%;}
+.delete{width: 33.333%;text-align: center;font-size:12px;
+color:#989898;float: left;line-height: 40px;}
+.lianglist text{margin-top: 12px;float: left;margin-left: 12px;}
+.display_show{display: block;}
+.display_none{display: none;}
+.screen{width: 100%;float: left;height: auto;overflow: hidden;}
+.screenlist{width: 33.33%;font-size: 18px;color: #414141;float: left;text-indent: 8%;
+height: 50px;line-height: 50px;border-bottom: 1px solid #efefef;}
+.EnterpriseInfo .cardserbb image{margin-top: 4px;}
+.EnterpriseInfo .cardserbb{margin-top: 7px;float: left;}
+.sign{width: 20px;height: 20px;position: absolute;top: 10px;right: 10px;z-index: 130;
+padding: 10px;}
+
+.zhaunfa{
+  /* position: absolute; */
+  /* top: 0px;
+  left: 0px;
+  z-index: 120; */
+  background: #fff;
+  width: 100%;
+  height: auto;
+  /* padding-bottom: 106px; */
+  border-radius: 10px;
+  float: left;
+  margin-top: 14px;
+  }
+.zhaunfa .zhaunfalist{
+  line-height: 40px;
+  padding-top:6px; 
+  color: #5a5a5a;
+  /* position: relative; */
+  border-top:1px solid #e1e1e1; 
+  width: 33%;
+  float: left;
+  position: relative;
+  }
+[open-type="share"]{
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;opacity:0;
+}
+
+ .display_show{
+     display: block;
+   
+}
+.display_none{
+    display: none;
+} 
+.share{
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin-top: 8px;
+  /* padding: 0 20px; */
+  margin-left: 20%;
+  margin-right: 5%;
+}

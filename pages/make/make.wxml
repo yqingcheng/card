@@ -1,0 +1,205 @@
+<!--pages/make/make.wxml-->
+<!-- 标题 -->
+ <view class="make" wx:if="{{!isshow}}"> 
+   <view class="makelist {{selected?'red':'default'}}" bindtap="selected">名片制作</view> 
+   <!-- <view class="makelist {{!selected?'red':'default'}}" bindtap="selected1">企业名片</view>  -->
+ </view> 
+<!-- 个人 -->
+<view class="{{selected?'show':'hidden'}}">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="personage">
+      <view class="personage_img">
+        <image class="pe_img" bindtap="logouserInfo" src="{{userInfoimg || userInfo}}"></image>
+      </view>
+      <view class="personage_in">
+        <input placeholder-style="color:#d0d0d0;" class="personage_i" name="name" value="{{name}}" bindinput="name" type="text" placeholder="请输入真实姓名" />
+        <input placeholder-style="color:#d0d0d0;" class="personage_i" name="mobile" value="{{mobile}}" bindinput="mobile" type="text" placeholder="请输入手机号" />
+      </view>
+      <view class="personagex">个人信息</view>
+    </view>
+    <view class="personagec"></view>
+    <view class="personagegs">
+      <view class="personage_gs"><text class="must_write">简介</text><text class="musn_write">*</text><input placeholder-style="color:#d0d0d0;" bindinput="desc" type="text" value="{{desc}}" name="desc" placeholder="一句话介绍自己" /></view>
+      <view class="personage_gs"><text class="must_write">职位</text><text class="musn_write">*</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="position" value="{{position}}" name="position" placeholder="职位" /></view>
+      <view class="personage_gs"><text class="must_write">地区</text><text class="musn_write">*</text>
+         <picker bindchange="bindReginChange" mode="region"value="{{region}}">
+          <view class="picker">
+            {{region}}
+          </view>
+        </picker> 
+      <view class="geren {{open?'display_show':'display_none'}}">
+        <view class="personage_gs"><text>微信号</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="wechat" value="{{wechat}}" name="wechat" placeholder="微信号" /></view>
+        <view class="personage_gs"><text>邮箱</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="email" value="{{email}}" name="email" placeholder="邮箱" /></view>
+        <view class="personage_gs"><text>个人主页</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="website" value="{{website}}" name="website" placeholder="个人主页" /></view>
+        <view class="personage_gs"><text>QQ</text><input placeholder-style="color:#d0d0d0;" type="number" bindinput="qq" value="{{qq}}" name="qq" placeholder="QQ" /></view>
+      </view>
+      <view class="personage_mo" bindtap="showitem">填写更多信息 {{arrText}}</view>
+    </view>
+    <view class="personagec"></view>
+    <view class="personagex">公司信息</view>
+    <view class="personagec"></view>
+    <view class="personagegs">
+      <view class="personage_gs"><text class="must_write">公司名称</text><text class="musn_write">*</text><input type="text" bindinput="company_name" value="{{company_name}}" name="company_name" placeholder-style="color:#d0d0d0;" placeholder="公司名称" /></view>
+      </view>
+      <view class="geren {{opene?'display_showw':'display_nonee'}}">
+      <view class="personage_gs"><text>行业</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="company_business" value="{{company_business}}" name="company_business" placeholder="行业" /></view>      
+        <view class="personage_gs"><text>详细地址</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="company_address" value="{{text3}}" name="company_address" placeholder="详细地址" /></view>
+        <view class="personage_gs"><text>主营业务</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="business" value="{{business}}" name="business" placeholder="主营业务" /></view>
+      </view>
+      <view class="personage_mo" bindtap="showitemm">填写更多信息 {{arrText1}} </view>
+    </view>
+    <view class="personagec"></view>
+    <view class="">
+      <view class="personage_back">
+        <view class="personagex">背景图</view>
+        <view class="personagec"></view>
+        <image class="pe_img" style="width:100px;height:100px;margin-top:10px;" data-src="{{bg_img}}" bindtap="updateBg" src="{{bg_img.length==0?'/image/_03.jpg':('https://card.xiaoniren.cn'+bg_img)}}"></image>
+      </view>
+      <!-- 1 -->
+    <view class="" wx:for="{{introDuce}}">
+      <view class="personagec"></view>
+      <view class="personagegs">
+        <view class="personage_gs"><text>标题</text><input placeholder-style="color:#d0d0d0;" data-index="{{index}}" bindinput="EventHandle" type="text" value="{{title}}" name="title" placeholder="{{item.title}}" /></view>
+      </view>
+      
+      <view class="Delimg" wx:for="{{item.img}}" wx:for-item="images" wx:for-index="asd">
+        <image bindtap="imgdel" class="delimg" data-id="{{images.id}}" data-inx="{{index}}" data-index="{{asd}}" src="/image/del.png"></image>
+        <image class="img" data-id="{{images.id}}" data-src="{{images.url}}" src="https://card.xiaoniren.cn{{images.url}}" style="width: 80%;height:100px;" />
+      </view>
+
+      <view class="tianjia">
+        <image data-index="{{index}}" bindtap="updateLicence" src="/image/_03.jpg"></image>
+      </view>
+      <view class="personagegs">
+        <view class="personage_gs"><text>介绍</text><input data-index="{{index}}" bindinput="contEventHandle" placeholder-style="color:#d0d0d0;" type="text" value="{{content}}" name="content" placeholder="{{item.content}}" /></view>
+      </view>
+    </view>
+      <!-- 結束 -->
+      <!-- 视频 -->
+      <view class="personage_back">
+        <view class="personagec"></view>
+        <view class="personagex">视频</view>
+        <view class="personagec"></view>
+        <view class="personag_evideo">
+          <video controls wx:if="{{video}}" src="https://card.xiaoniren.cn{{video}}"></video>
+            <view class="tianjia">
+            <image  bindtap="bindButtonTap" src="/image/_03.jpg"></image>
+          </view>
+        </view>
+      </view>
+      <view class="beizhu">添加视频(<text>不能大于30MB,现仅支持MP4格式</text>)</view>
+    </view>
+    <button class="btn_login" formType="submit">完成</button>
+  </form>
+</view>
+
+<!--  -->
+<view wx:if="{{progress>0 && progress< 100 }}" class="bj_shade">
+  <view class="progress">
+    <progress percent="{{progress}}" show-info />
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+<!-- 公司 -->
+ <!-- <view class="{{!selected?'show':'hidden'}}">
+  <form bindsubmit="firmformSubmit" bindreset="formReset">
+    <view class="personage">
+      <view class="personage_img">
+        <image class="pe_img" data-src="{{logo}}" bindtap="updateLogo" src="{{logo.length==0?'/image/logo.png':('https://card.xiaoniren.cn'+logo)}}"></image>
+      </view>
+      <view class="personage_in">
+        <input class="personage_is" placeholder-style="color:#d0d0d0;" type="text" value="{{company}}" name="company" bindinput="company" placeholder="请输入公司全名" />
+        <input class="personage_is" placeholder-style="color:#d0d0d0;" name="username" value="{{username}}" bindinput="username" placeholder="请输入法人姓名" />
+        <input class="personage_is" placeholder-style="color:#d0d0d0;" name="phone" value="{{phone}}" bindinput="phone" placeholder="请输入公司电话" />
+      </view>
+      <view class="personagex">个人信息</view>
+    </view>
+    <view class="personagec"></view>
+    <view class="personagegs">
+      <view class="personage_gs"><text>主营</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="business" value="{{business}}" name="business" placeholder="主营" /></view>
+      <view class="personage_gs"><text>行业</text><input placeholder-style="color:#d0d0d0;" type="text" bindinput="company_business" value="{{company_business}}" name="company_business" placeholder="行业" /></view>
+      <view class="personage_gs"><text>地区</text>
+        <picker id="{{brands2[brandindex2].id}}" bindchange="bindPickerChange02" name="{{brandindex}}" value="{{brandindex2}}" range="{{brands2}}" range-key="{{'name'}}">
+          <view class="picker">
+            {{brands2[brandindex2].name}}
+          </view>
+        </picker>
+        <picker bindchange="bindPickerChange12" name="{{index22}}" value="{{index22}}" range="{{object2}}" range-key="{{'name'}}">
+          <view class="picker">
+            {{object2[index22].name}}
+          </view>
+        </picker>
+      </view>
+      <view class="personage_gs"><text>详细地址</text><input type="text" bindinput="company_address" value="{{company_address}}" name="company_address" placeholder="详细地址" /></view>
+      <view class="geren {{openeg?'display_showg':'display_noneg'}}">
+        <view class="personage_gs"><text>公司规模</text>
+          <picker mode="selector" range="{{array}}" value="{{index}}" name="{{array[index]}}" bindinput="company_scale" bindchange="listenerPickerSelected">
+            <view class="picker"> {{array[index]}}</view>
+          </picker>
+        </view>
+        <view class="personage_gs"><text>融资情况</text>
+          <picker mode="selector" range="{{renminbi}}" value="{{index1}}" name="{{renminbi[index1]}}" bindinput="financing_situation" bindchange="listenerPickerSelectedd">
+            <view class="picker"> {{renminbi[index1]}}</view>
+          </picker>
+        </view>
+        <view class="personage_gs"><text>注册资本</text>
+          <input placeholder-style="color:#d0d0d0;" type="number" bindinput="registered_capital" value="{{registered_capital}}" name="registered_capital" placeholder="万" />
+        </view>
+        <view class="personage_gs"><text>成立时间</text>
+          <picker mode="date" value="{{date}}" start="1990-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+
+
+      <view class="personage_mo" bindtap="showitemg">填写更多信息 {{arrTexT}}</view>
+    </view>
+    <view class="personagec"></view>
+    <view class="personagex">资质信息</view>
+    <view class="personagec"></view>
+    <view class="zizhi">
+      <view class="zizhia">
+        <image data-src="{{license}}" bindtap="license" src="{{license.length==0?'/image/z_03.jpg':('https://card.xiaoniren.cn'+license)}}"></image>
+      </view>
+      <view class="zizhib">
+        <view class="">
+          <image data-src="{{positive}}" bindtap="positive" src="{{positive.length==0?'/image/z_05.jpg':('https://card.xiaoniren.cn'+positive)}}"></image>
+        </view>
+        <view class="">
+          <image data-src="{{contrary}}" bindtap="contrary" src="{{contrary.length==0?'/image/z_07.jpg':('https://card.xiaoniren.cn'+contrary)}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="personagec"></view>
+    <view class="personagex">公司信息</view>
+    <view class="personagec"></view>
+    <view class="">
+      <view class="tianjia">
+        <image bindtap="gsupdateLicence" src="/image/_03.jpg"></image>
+      </view>
+      <view class="Delimg" wx:for="{{image}}">
+        <image bindtap="firmimgdel" class="delimg" data-id="{{item.id}}" data-index="{{index}}" src="/image/del.png"></image>
+        <image class="img" data-id="{{item.id}}" data-src="{{item.image}}" src="https://card.xiaoniren.cn{{item.image}}" style="width: 80%;height:100px;" />
+      </view>
+      <view class="beizhu">添加公司介绍、产品介绍、团队介绍、客户案例等(可添加多个)</view>
+      <view class="personagegs">
+        <view class="personage_gs"><text>标题</text><input placeholder-style="color:#d0d0d0;" type="text" value="{{title}}" name="title" placeholder="标题" /></view>
+        <view class="personage_gs"><text>介绍</text><input placeholder-style="color:#d0d0d0;" type="text" value="{{content}}" name="content" placeholder="一句话介绍公司" /></view>
+      </view>
+    </view>
+    <button class="btn_login" formType="submit">完成</button>
+  </form>
+</view>  -->

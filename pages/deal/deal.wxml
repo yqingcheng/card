@@ -1,0 +1,7 @@
+<!--pages/deal/deal.wxml-->
+<view class="deal" wx:for="{{listl}}">
+  <view class="">昵称:{{item.pay_user_name}}</view>
+  <view class="">时间:{{item.created_at}}</view>
+  <view class="">金额:{{item.amount}}</view>
+</view>
+ <view class="dealcon">我是有底线的</view> 

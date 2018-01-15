@@ -1,0 +1,39 @@
+https://y2w2g9.axshare.com 原型 (key:123456)
+
+"pages/personal/personal", 个人中心
+
+"pages/index/index", 首页
+
+"pages/minemp/minemp",  我的名片
+
+"pages/minempdetails/minempdetails",  个人名片详情
+
+"pages/firmminempdetails/firmminempdetails", 企业名片详情
+
+"pages/make/make", 制作名片
+
+"pages/cardcase/cardcase", 搜名片筛选
+
+"pages/group/group", 交流群
+
+"pages/holder/holder",名片夹
+
+"pages/deal/deal",交易明细
+
+"pages/distribution/distribution", 我的分销
+
+"pages/minempdetails/minempdetails",   个人名片详情
+
+"pages/firmminempdetails/firmminempdetails",  企业名片详情
+
+https://card.xiaoniren.cn/restapi/delivery-info/update?id=2 修改
+
+https://card.xiaoniren.cn/restapi/delivery-info/delete?id=2   GET请求删除操作
+
+
+
+
+
+
+
+

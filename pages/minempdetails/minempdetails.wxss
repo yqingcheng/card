@@ -1,0 +1,77 @@
+/* pages/minempdetails/minempdetails.wxss */
+
+@import '../info/info.wxss';
+@import '../infoImg/infoImg.wxss';
+.infoImg_wrap{
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;top: 100%;
+  background: #fff;
+}
+.btn_make{width: 92%;background: #fded01;color: #822c0b;float: left;margin-left: 4%;margin-top: 20px;margin-bottom: 50px;}
+/* .cardse{width: 92%;float: left;margin-left: 4%;height: auto;
+  -webkit-box-shadow: #b8b8b8 0px 0px 4px;
+  -moz-box-shadow: #b8b8b8 0px 0px 4px;
+  box-shadow: #b8b8b8 0px 0px 4px;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.cardseimg{width: 30%;float: left;margin-right: 5%;margin-top: 7%;margin-left: 5%;}
+.cardseimg image{width: 100%;height: 100px;}
+.cardser{widows: 60%;float: left;overflow: hidden;height: auto;margin-top: 7%;}
+.cardser image{width: 22px;height: 22px;float: left;margin-top: 5px;margin-right: 16px;}
+.intro{width: 88%;float: left;
+font-size: 12px;color: #0f8ef9;
+overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;margin-left: 5%;margin-top: 19px;}
+.cardsera{font-size: 18px;color: #424242;font-weight: bold;margin-bottom: 17px;}
+.cardsera text{font-size: 15px;color: #656565;}
+.cardserb{color: #424242;font-size: 14px;line-height: 30px;}
+.liang{width: 90%;float: left;height: auto;overflow: hidden;border-top: 1px dotted #a0a0a0;
+margin-top: 20px;padding-top: 10px;margin-left: 5%;}
+.liang image{width: 22px;height: 22px;}
+.lianglist{float: left;width: 50%;font-size: 12px;color: #989898;text-align: center;
+overflow: hidden;}
+.lianglist .sshouc{width: 80%;height: 40px;}
+.sshoucimg{float: left;margin-top: 8px;margin-left: 20%;}
+.lianglist text{margin-top: 12px;float: left;margin-left: 12px;}
+.display_show{display: block;}
+.display_none{display: none;}
+.screen{width: 100%;float: left;height: auto;overflow: hidden;}
+.screenlist{width: 33.33%;font-size: 18px;color: #414141;float: left;text-indent: 8%;
+height: 50px;line-height: 50px;border-bottom: 1px solid #efefef;}
+
+.sign{width: 20px;height: 20px;position: absolute;top: 10px;right: 10px;}
+.listfe{width: 100%;height: 50px;line-height: 50px;border-bottom: 1px solid #b8b8b8;overflow: hidden;
+float: left;}
+.listfe view{float: left;}
+.tit{font-size: 16px;color: #0c0c0c;width: 16%;margin-left: 4%;}
+.conti{color: #a0a0a0;font-size: 16px;width: 27%;}
+.listfe .fuzhi{width: 16%;text-align: center;color: #fff;font-size: 12px;background: #138ef8;
+height: 20px;line-height: 20px;border-radius: 6px;margin-top: 16px;float: right;margin-right: 4%;}
+.conz{width: 100%;height: 10px;background: #eeeeee;float: left;}
+.gsjj{font-size: 16px;color: #0c0c0c;width: 90%;margin-left: 4%;line-height: 40px;}
+.gsimg{width: 92%;margin-left: 4%;}
+.title{width: 100%;height: 30px;line-height: 30px;text-align: center;font-size: 14px;color: #0c0c0c;}
+.content{width: 92%;height: 30px;line-height: 30px;font-size: 14px;color: #0c0c0c;
+margin-left: 4%;text-indent: 28px;}
+
+
+
+
+
+
+
+
+
+
+
+.btn_collect{width: 92%;background: #108df9;color: #fff;float: left;margin-left: 4%;margin-top: 30px;}
+.btn_make{width: 92%;background: #fded01;color: #822c0b;float: left;margin-left: 4%;margin-top: 20px;margin-bottom: 50px;} */

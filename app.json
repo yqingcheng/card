@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/index/index",    
+    "pages/minemp/minemp",   
+    "pages/make/make",    
+    "pages/distribution/distribution",
+    "pages/cardcase/cardcase",    
+    "pages/deal/deal",    
+    "pages/personal/personal",    
+    "pages/holder/holder",    
+    "pages/group/group",    
+    "pages/minempdetails/minempdetails",  
+    "pages/firmminempdetails/firmminempdetails",    
+    "pages/logs/logs"
+  ],
+  "window":{
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小泥人电子智能商务共享名片制作",
+    "navigationBarTextStyle":"black"
+  },
+    "tabBar": {
+      "color": "#a9b7b7",
+      "selectedColor": "#11cd6e",
+      "borderStyle": "black",
+      "list": [
+        {
+          "selectedIconPath": "image/yonghu1.png",
+          "iconPath": "image/index.png",
+          "pagePath": "pages/minemp/minemp",
+          "text": "我的名片"
+        },
+        {
+          "selectedIconPath": "image/mpj.png",
+          "iconPath": "image/mpj1.png",
+          "pagePath": "pages/holder/holder",
+          "text": "名片夹"
+        },
+        {
+          "selectedIconPath": "image/1x.png",
+          "iconPath": "image/sousuo.png",
+          "pagePath": "pages/cardcase/cardcase",
+          "text": "搜名片"
+        },
+        {
+          "selectedIconPath": "image/yonghug.png",
+          "iconPath": "image/yonghu.png",
+          "pagePath": "pages/personal/personal",
+          "text": "个人中心"
+        }
+      ]
+    }
+}

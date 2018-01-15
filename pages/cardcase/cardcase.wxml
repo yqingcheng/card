@@ -1,0 +1,99 @@
+<!--pages/cardcase/cardcase.wxml-->
+<import src="../search/search.wxml"></import>
+<template is="search" data="{{searchmp}}"></template>
+<view class="personagec"></view>
+<!-- 筛选 -->
+<!-- <view class="screen">
+  <view data-index="0" class="screenlist {{_num==0 ? 'bc_red':''}}" bindtap="tapMainMenu">
+    {{areaTxt}} <view class="aaa"></view>
+  </view>
+  <view data-index="1" class="screenlist {{_num==1 ? 'bc_red':''}}" bindtap="tapMainMenu">
+    行业 <view class="aaa"></view>
+  </view>
+  <view data-index="2" class="screenlist {{_num==2 ? 'bc_red':''}}" bindtap="tapMainMenu">
+    排序 <view class="aaa"></view>
+  </view>
+  <dd class="{{subMenuDisplay[0]}}">
+      <ul>
+        <li  data-index="地区1" bindtap="tapSubMenu">地区1</li>
+        <li  data-index="地区2" bindtap="tapSubMenu">地区2</li>
+        <li  data-index="地区3" bindtap="tapSubMenu">地区3</li>
+      </ul>
+  </dd>
+  <dd class="{{subMenuDisplay[1]}}">
+      <ul>
+          <li  data-index="行业1" bindtap="tapSubMenumian">行业1</li>
+      </ul>
+  </dd>
+   <dd class="{{subMenuDisplay[2]}}">
+      <ul>
+          <li  data-index="排序1" bindtap="tapSubMens">排序1</li>
+      </ul>
+  </dd>
+</view> -->
+
+<!-- 列表 -->
+<view class="cardse" wx:for="{{search}}" data-index="{{index}}">
+  <view bindtap="chakan" data-index="{{item.id}}" data-type="DeliveryInfo">
+    <navigator url="/pages/minempdetails/minempdetails?id={{item.id}}&type=DeliveryInfo&is_collect={{item.is_collect}}" bindtap='dianji'>
+      <view class="cardseimg">
+        <image src="{{item.head_portrait}}"></image>
+      </view>
+      <view class="cardser">
+        <view class="cardsera">{{item.name}} <text> {{item.position}}</text></view>
+        <view class="cardserb">
+          <image src="/image/tel.png"></image> <text> {{item.mobile}}</text></view>
+        <view class="cardserb">
+          <image src="/image/dizhi.png"></image> <text> {{item.company_name}}</text></view>
+      </view>
+      <view class="intro">{{item.desc}}</view>
+    </navigator>
+  </view>
+  <view class="liang">
+    <view class="lianglist">
+      <image catchtap="showitem" wx:if="{{!item.is_collect}}" data-type="DeliveryInfo" data-index="{{item.id}}" class="sshouc" src="/image/03_07.jpg"></image>
+      <image catchtap="showitemm" wx:if="{{item.is_collect}}" data-index="{{item.id}}" class="sshouc" data-type="DeliveryInfo" data-key='{{item.is_collect}}' src="/image/03_03.jpg"></image>
+    </view>
+    <view class="lianglist">
+      <image class="sshoucimg" src="/image/k.png"></image> <text> {{item.clicks}}人看过</text></view>
+    <view class="lianglist">
+      <image class="sshoucimg" src="/image/s.png"></image> <text> {{item.collect}}收藏</text></view>
+  </view>
+</view>
+<!-- 公司 列表 -->
+<view class="cardse EnterpriseInfo "  wx:for="{{gssearch}}" >
+  <view bindtap='chakan' data-index="{{item.id}}" data-type="EnterpriseInfo">
+  <navigator url="/pages/firmminempdetails/firmminempdetails?id={{item.id}}&type=DeliveryInfo">
+    <image class="sign" src="/image/jiao_03.jpg"></image>
+    <view class="cardseimg">
+      <image src="https://card.xiaoniren.cn{{item.logo}}"></image>
+    </view>
+    <view class="cardser">
+      <view class="cardsera">{{item.name}}</view>
+      <view class="cardsera">
+        <view class="">
+          <image src="/image/name.png"></image><text>{{item.username}}</text></view>
+        <view class="">
+          <image src="/image/2_03.jpg"></image><text>{{item.registered_capital}}</text></view>
+      </view>
+      <view class="cardserb cardserbb">
+        <image src="/image/tel.png"></image> <text> {{item.phone}}</text></view>
+      <view class="cardserb cardserbb">
+        <image src="/image/yewu.png"></image> <text> {{item.business}}</text></view>
+    </view>
+
+    <view class="intro">{{item.title}}</view>
+    </navigator>
+    </view>
+    <view class="liang">
+      <view class="lianglist">
+        <image catchtap="showitem" wx:if="{{!item.collect}}" data-type="EnterpriseInfo" data-index="{{item.id}}" data-ss="{{ss}}" class="sshouc" src="/image/03_07.jpg"></image>
+        <image bindtap="showitemm" wx:else data-hi="LIHONGDA" data-index="{{item.is_collect}}" class="sshouc" src="/image/03_03.jpg"></image>
+      </view>
+      <view class="lianglist">
+        <image class="sshoucimg" src="/image/k.png"></image> <text> {{item.clicks}}人看过</text></view>
+      <view class="lianglist">
+        <image class="sshoucimg" src="/image/s.png"></image> <text> {{item.collect}}收藏</text></view>
+    </view>
+  
+</view>

@@ -1,0 +1,6 @@
+<template name="search">
+  <view class="card">
+    <input bindinput="searchmp" type="text" value="{{card}}" data-use="1111" placeholder="输入公司名称,姓名，业务,产品等" focus="{{focus}}" />
+    <image class="card_img" src="/image/u118.png"></image>
+  </view>
+</template>

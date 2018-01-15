@@ -1,0 +1,38 @@
+/**index.wxss**/
+.getUserInfo{width: 92%;}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+}
+.usermotto {
+  margin-top: 200px;
+}
+/* zhifu */
+page{width: 100%;height: 100%;}
+.zhifu{position: relative;width: 100%;height: 100%;}
+/* .poster{width: 100%;
+        background: url(/image/1205__03.jpg);
+        height: 100%;
+        background-repeat:no-repeat;
+        background-size:100% 100%;
+ } */
+.poster image{width: 100%;}
+.btn_loginn_po{left: 4%;bottom: 30px;position: fixed;z-index: 100;width: 92%;}
+.btn_login{width: 92%;background: #fded01;color: #832a08;position: relative;z-index: 90;}
+
+.btn_login_img{left: 4%;bottom: 30px;position: fixed;z-index: 100;width: 92%;}
+.btn_loginn{width: 92%;background: #fded01;color: #832a08;}
+.display_show{display: block;}
+.display_none{display: none;}
+.close{position: absolute;top: 10px;right: 10px;z-index: 100}
+.close image{width: 24px;height: 24px;}

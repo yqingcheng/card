@@ -1,0 +1,5 @@
+/* pages/group/group.wxss */
+.group{width: 100%;color: #515151;font-size: 14px;text-align: center;
+line-height: 50px;}
+image{width: 150px;height: 170px;}
+.groupimg{width: 100%;text-align: center;padding-top: 100px;}

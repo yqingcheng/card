@@ -1,0 +1,11 @@
+/* pages/distribution/distribution.wxss */
+.distribution{width: 92%;margin: 0 auto;}
+.distributiontit{width: 100%;text-align: center;padding-top: 20px;line-height: 30px;}
+.kuai{width: 10px;height: 20px;float: left;padding-right: 15px;}
+.distcon{width: 100%;float: left;font-size: 30rpx;color: #515151;line-height: 48rpx;}
+.listfe{width: 100%;height: 50px;line-height: 50px;border-bottom: 1px solid #b8b8b8;overflow: hidden;
+float: left;}
+.listfe view{float: left;}
+.listfelist{width: 24px;height: 24px;float: left;margin-top: 14px;margin-left: 4%;margin-right: 10px;}
+.xian{width: 100%;background: #f2f2f2;height: 10px;float: left;margin-top: 20px;}
+.tit{font-size: 16px;color: #0c0c0c;width: 28%;}

@@ -1,0 +1,25 @@
+.img_wrap image {
+    width: 100%;
+    display: block;
+}
+
+.infoImg_tit {
+    line-height: 88rpx;
+    font-size: 38rpx;
+    text-align: center;
+    background-color: #3ba0e6;
+     margin-top: 10rpx; 
+    color: #fff;
+}
+.img_wrap{
+    padding: 34rpx 34rpx 0;
+    background-color: #fff;
+}
+.infoImg_cont {
+    line-height: 48rpx;
+    font-size: 24rpx;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    padding: 0 34rpx;
+}

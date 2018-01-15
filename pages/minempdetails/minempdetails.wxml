@@ -1,0 +1,18 @@
+<import src="../info/info.wxml">
+</import>
+<import src='../infoImg/infoImg.wxml'></import>
+<template is="info" data='{{infoData: infoData, shoucang: shoucang,self:self,is_collect:is_collect}}' />
+ 
+ <view class="infoImg_wrap">
+
+  <view class="" wx:if="{{infoData.DeliveryInfo.video}}">
+  <view class="infoImg_tit">视频介绍</view>
+    <video initial-time="1000" style="width:100%;" src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.video}}"></video>
+  </view>
+  
+  <block wx:for="{{infoData.DeliveryInfoImg}}" wx:key="index">
+    <template is="infoImg" data='{{...item}}'></template>
+  </block>
+
+   <button class="btn_make" bindtap="zhifu">点击制作</button>
+</view> 
