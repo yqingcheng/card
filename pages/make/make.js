@@ -658,6 +658,9 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+        console.log(that.data.link_origin)
+        // return;
         console.log(res)
         wx.uploadFile({
           url: that.data.link_origin + '/restapi/delivery-info/upload', //仅为示例，非真实的接口地址

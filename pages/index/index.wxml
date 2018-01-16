@@ -1,4 +1,3 @@
-
 <view class="zhifu {{open?'display_none':'display_show'}}" >
   <view bindtap="close" class="close">
     <image src="/image/close.png"></image>
@@ -14,8 +13,8 @@
     <button class="btn_login" data-userinfo="{{false}}" wx:if="{{userinfo}}"
      formType="submit" bindtap="zhifu">制作我的名片(100元/年)</button>
 
-    <button class="getUserInfo" open-type="getUserInfo" wx:if="{{!userinfo}}"
-     bindgetuserinfo="userInfoHandler"> 获取用户信息 </button> 
+    <button class="getUserInfo"  wx:if="{{!userinfo}}"
+     bindtap="userInfoHandler"> 获取用户信息 </button> 
   </view>
 </view>
 
