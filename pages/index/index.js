@@ -100,11 +100,13 @@ Page({
       }
     })
 
+    // var jiexi = '{"scene":"referrer%3D521"}'
+    // //referrer=521
+    // console.log(decodeURIComponent(JSON.parse(jiexi).scene).split('=')[1])
+
     if (scene !== 'undefined'){
-      // https://xianx.cn?scene=521
-      userId = scene
+      userId = scene.split('=')[1]
     }
-    console.log(option)
     if (userId && userId > 0){
       console.log('分享id',userId)
       console.log(that)
