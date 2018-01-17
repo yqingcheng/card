@@ -20,6 +20,9 @@ Page({
     },
     self:false,
     is_collect: 0,
+    userid:0,
+    typea:'',
+    uid:0,
   },
   // 收藏
   shoucang(e){
@@ -145,7 +148,17 @@ Page({
     return arr;
   },
   onLoad: function (options) {
+    
+    console.log(options, 'onLoad')
+    console.log(options.id)
+    console.log(options.type)
+
     var that = this
+    that.setData({
+      userid:options.id,
+      typea:options.type,
+      uid: options.referrer
+    })
     wx.showLoading({
       title: '加载中',
     })
@@ -209,15 +222,17 @@ Page({
           head_image: that.data.userInfo.avatarUrl,
           gender: that.data.userInfo.gender,
           country: that.data.userInfo.country,
+          referrer: that.data.uid
         },
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
         method: "POST",
         success: function (res) {
-          console.log(res)
+          console.log(res.data.data.id)
           that.setData({
-            time_remaining: res.data.data.time_remaining
+            time_remaining: res.data.data.time_remaining,
+            uid: res.data.data.id
           })
         }
 
@@ -276,7 +291,22 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    console.log(this.data.userid)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '小泥人电子智能商务共享名片制作',
+      path: '/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea +"&referrer="+this.data.uid,
+      success: (res) => {
+        // 转发成功
+        console.log('/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea + "&referrer=" + this.data.uid)
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

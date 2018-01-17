@@ -17,12 +17,10 @@ Page({
     referrer_id: 0,
     userinfo:false,
     userId: 0,
-    options: null
+    options: null,
   },
-
   asdf(userInfo,ref) {
     //更新数据
-
     var ajax = (ref) => {
       console.log(this)
       this.setData({
@@ -66,7 +64,7 @@ Page({
           }
           wx.setStorageSync('userId', res.data.data.id + '')
           wx.getStorageSync('userId')
-
+          console.log(wx.getStorageSync('userId'))
           wx.setStorageSync('time_remaining', res.data.data.time_remaining + '')
           wx.getStorageSync('time_remaining')
         }
@@ -80,14 +78,32 @@ Page({
       console.log('小于0' + ref)
       ajax(0)
     }
-
-
   },  
-
   // 获取信息
   onLoad: function (option) {
     var that = this
     var userId = option.referrer
+    console.log(userId)
+    var scene = decodeURIComponent(option.scene)
+    console.log(scene)
+
+    var optionStr = JSON.stringify(option)
+
+    wx.setClipboardData({
+      data: optionStr,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
+
+    if (scene !== 'undefined'){
+      // https://xianx.cn?scene=521
+      userId = scene
+    }
     console.log(option)
     if (userId && userId > 0){
       console.log('分享id',userId)
@@ -95,12 +111,9 @@ Page({
       that.setData({
         userId: userId
       })
-      
     }else{
       console.log(that)
     }
-
-    
     console.log(this.data, "页面数据")
       //调用应用实例的方法获取全局数据
       app.getUserInfo((userInfo) => {
@@ -108,7 +121,6 @@ Page({
         console.log(this.data.userId)
         this.asdf(userInfo,this.data.userId)
       })
-     
   },
   bindViewTap: function () {
     wx.navigateTo({
@@ -215,36 +227,6 @@ Page({
     })
     var that = this
     console.log(that)
-    // wx.getSetting({
-    //   success(res) {
-    //     // if ('scope.userInfo' in res.authSetting){
-    //     //   delete res.authSetting['scope.userInfo']
-    //     //   console.log(res.authSetting)
-    //     // }
-    //     console.log(res.authSetting['scope.record'])
-    //     if (!res.authSetting['scope.record']) {
-    //       wx.authorize({
-    //         scope: 'scope.record',
-    //         success() {
-    //           // console.log(12)
-    //           // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-    //           this.setData({
-    //             userinfo: true
-    //           })
-    //           app.getUserInfo((userInfo) => {
-    //             // console.log(this)
-    //             console.log(this.data.userId)
-    //             this.asdf(userInfo, this.data.userId)
-    //           })
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
-    // console.log(this.data.options)
-    // wx.navigateTo({
-    //   url: '../index/index?referrer=' + 521,
-    // })
   },
   onShow(){
 
@@ -253,91 +235,50 @@ Page({
       console.log(this.data.userId)
       this.asdf(userInfo, this.data.userId)
     })
-
-    // wx.getSetting({
-    //   success: (res) => {
-    //      if (res.authSetting['scope.userInfo']){
-    //         this.setData({
-    //           userinfo:true
-    //         })
-    //      }
-    //   }
-    // })
   },
   // 分享
   onShareAppMessage: function (res) {
+    //   var onOff = false;
+    //   onOff = wx.getStorageSync('auth')
+    //   if (!onOff) {
+    //     wx.showModal({
+    //       title: '温馨提示',
+    //       content: '请先授权',
+    //       success: function (res) {
+    //         if (res.confirm) {
+    //           console.log('用户点击确定')
+    //           wx.redirectTo({
+    //             url: '../index/index'
+    //           })
+    //         } else if (res.cancel) {
+    //           console.log('用户点击取消')
+    //         }
+    //       }
+    //     })
+
+
+    //   }
+    //   if (!onOff){
+    //   return false;
+    // }
+
+    var that = this
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      // console.log(res.target)
+      console.log(res.target)
     }
     return {
-      title: '小泥人电子智能商务共享名片制作',
-      path: '',
+      title: '',
+      path: '/pages/index/index?referrer=' + wx.getStorageSync('userId'),
+      imageUrl: that.data.www + that.data.qrcode,
       success: function (res) {
         // 转发成功
+        console.log('/pages/index/index?referrer=' + wx.getStorageSync('userId'))
       },
+
       fail: function (res) {
         // 转发失败
       }
     }
   },
-    // 个人视频上传
-  // bindButtonTap: function () {
-  //   var that = this
-  //   wx.chooseVideo({
-  //     sourceType: ['album', 'camera'],
-  //     maxDuration: 60,
-  //     camera: 'back',
-  //     compressed:true,
-  //     success: function (res) {
-  //       var tempFilePath= res.tempFilePath
-  //       var videosize=wx.uploadFile({
-  //         url: that.data.link_origin + '/restapi/delivery-info/upload', //仅为示例，非真实的接口地址
-  //         filePath: tempFilePath,
-  //         name: 'file',
-  //         formData: {},
-  //         success: function (res) {
-  //           var url = "" 
-  //           try{
-  //             url=JSON.parse(res.data).data.file.url
-  //           }catch(e){
-  //             wx.showToast({
-  //               title: JSON.parse(res.data).data.message,
-  //               icon: 'success',
-  //               duration: 2000,
-  //               mask: true,
-  //             })
-  //           }
-  //           that.setData({
-  //             licence: true,
-  //             video: url
-  //           })
-  //           if (JSON.parse(res.data).success == true){
-  //             wx.showToast({
-  //               title: '上传成功',
-  //               icon: 'succes',
-  //               duration: 1000,
-  //               mask: true
-  //             })
-  //           }
-  //           // console.log(res.data)
-  //         },
-  //         fail:function(res){
-  //           wx.showToast({
-  //             title: '上传失败',
-  //             icon: 'success',
-  //             duration: 2000,
-  //             mask: true,
-  //           })
-  //         }
-  //       })
-  //       videosize.onProgressUpdate( (res) => {
-  //         // console.log(res)
-  //       })
-  //     }
-  //   })
-  // },
-  
-
- 
 }) 

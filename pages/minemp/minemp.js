@@ -18,6 +18,7 @@ Page({
     link_origin:app.globalData.link_origin,
     showArr:[],
     referrer: undefined,
+    referrerid: undefined,
     com:sum.com,
     usersatus:false,
   },
@@ -81,14 +82,17 @@ Page({
           that.setData({
             time_remaining: time_remaining,
             referrer: res.data.data.referrer,
+            referrerid: res.data.data.id,
             open: false,
           })
           cb && cb(res)
+          // console.log(res.data.data.id)
         }
       })
     }
   },
   onLoad: function (options) {
+    console.log(options)
     var that = this  
         wx.request({
           url: 'https://card.xiaoniren.cn/restapi/default/index',
@@ -110,6 +114,7 @@ Page({
             for (var i = 0; i < res.data.data.EnterpriseInfo.length; i++) {
               showArr1.push(1)
             }
+            console.log(res)
             that.setData({
               list: res.data.data.DeliveryInfo,
               listlength: listlength,
@@ -227,12 +232,7 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
+ 
   // 个人 delete
   delete:function(e){
     var that = this
@@ -274,6 +274,7 @@ Page({
   amend: function (e) {
     var that = this
     var id = e.currentTarget.dataset.index
+    console.log(id)
     wx.navigateTo({
       url: '../make/make?id=' + id + '&type=D',
     })
@@ -322,6 +323,7 @@ Page({
       url: '../make/make?id=' + id +'&type=E',
     })
   },
+  
   //分享
   onShareAppMessage: function (res) {
     var that=this,id,Type,name,img
@@ -332,19 +334,37 @@ Page({
       name = res.target.dataset.name
       img = res.target.dataset.img
     }
-    return {
-      imageUrl: img,
-      title: name,
-      path: '/pages/minempdetails/minempdetails?id=' + id + '&type='+Type + '&referrer=' + that.data.referrer,
-      success: function (res) {
-        // 转发成功
-        console.log('/pages/minempdetails/minempdetails?id=' + id + '&type=' + Type + '&referrer=' + that.data.referrer)
-      },
-      fail: function (res) {
-        // 转发失败
+
+    if(id && Type){
+      return {
+        imageUrl: img,
+        title: name,
+        path: '/pages/minempdetails/minempdetails?id=' + id + '&type=' + Type + '&referrer=' + that.data.referrerid,
+        success: function (res) {
+          // 转发成功
+          console.log('/pages/minempdetails/minempdetails?id=' + id + '&type=' + Type + '&referrer=' + that.data.referrerid)
+        },
+        fail: function (res) {
+          // 转发失败
+        }
+      }
+    }else{
+      console.log(1)
+      return {
+        imageUrl: img,
+        title: name,
+        path: '/pages/index/index?&referrer=' + that.data.referrerid,
+        success: function (res) {
+          // 转发成功
+          console.log('/pages/index/index?&referrer=' + that.data.referrerid)
+        },
+        fail: function (res) {
+          // 转发失败
+        }
       }
     }
   },
+  
   // 点击跳转首页
   poster(){
     sum.com=1

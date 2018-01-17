@@ -45,6 +45,7 @@ App({
         withCredentials: false,
         success: function(res) {
           that.globalData.userInfo = res.userInfo
+          wx.setStorageSync('auth', true)
           typeof cb == "function" && cb(that.globalData.userInfo)
         }
       })
