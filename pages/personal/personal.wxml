@@ -50,7 +50,7 @@
       <view class="tit">制作锁屏壁纸</view> 
   </view>  
 </view>   
-<image src="http://card.xiaoniren.cn{{list.qrcode}}" class="icon-code"></image>
+<image src="http://card.xiaoniren.cn{{list.qrcode}}" bindtap="iconcode" class="icon-code"></image>
 <view wx:if="{{time_remaining==0}}" class="btn-share" bindtap="fenxiang">
   分享
   <image class="fenxiang"  src="/image/fenxiang.png"></image>

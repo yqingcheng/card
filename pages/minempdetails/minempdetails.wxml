@@ -14,5 +14,6 @@
     <template is="infoImg" data='{{...item}}'></template>
   </block>
 
-   <button class="btn_make" bindtap="zhifu">点击制作</button>
+   <button class="btn_make" bindtap="zhifu">我要制作</button>
+   
 </view> 

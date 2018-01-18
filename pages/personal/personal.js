@@ -65,6 +65,7 @@ Page({
             withdraw_deposit: withdraw_deposit,
             time_remaining: res.data.data.time_remaining
           })
+          console.log(res)
         }
       })
     })
@@ -98,33 +99,26 @@ Page({
   depositsub: function (e) {
     var formData = e.detail.value
     var that = this
-    console.log(that.data.id)
-    if (this.data.arrtet > that.data.withdraw_deposit){
-      wx.showToast({
-        title: '当前余额不足',
-        icon: 'succes',
-        duration: 1000,
-        mask: true
-      })
-    }else{
-      wx.request({
-        url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal/create',
-        data: {
-          openid: that.data.openid,
-          id: that.data.id,
-          amount: that.data.arrtet,
-        },
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        method: "POST",
-        success: function (res) {
-          wx.showToast({
-            title: '提现成功',
-            icon: 'succes',
-            duration: 1000,
-            mask: true
-          }),
+    console.log(this.data.arrtet, that.data.withdraw_deposit)
+
+    wx.request({
+      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal/create',
+      data: {
+        openid: that.data.openid,
+        id: that.data.id,
+        amount: that.data.arrtet,
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      success: function (res) {
+        wx.showToast({
+          title: '提现成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        }),
           that.setData({
             lopen: false,
             lshow: true,
@@ -132,41 +126,40 @@ Page({
             id: that.data.id,
             amount: that.data.arrtet,
           })
-          console.log(res)
-          if (res.data.success == true ){
-            wx.showToast({
-              title: '提现成功',
-              icon: 'succes',
-              duration: 1000,
-              mask: true
-            }),
-              that.setData({
-                lopen: false,
-                lshow: true,
-                openid: that.data.openid,
-                id: that.data.id,
-                amount: that.data.arrtet,
-              })
-          }else{
-            wx.showToast({
-              title: res.data.data.message,
-              icon: 'success',
-              duration: 2000,
-              mask: true,
-            })
-          }
-          that.onShow();
-        },
-        fail: function () {
+        console.log(res)
+        if (res.data.success == true) {
           wx.showToast({
-            title: '提现失败',
+            title: '提现成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          }),
+            that.setData({
+              lopen: false,
+              lshow: true,
+              openid: that.data.openid,
+              id: that.data.id,
+              amount: that.data.arrtet,
+            })
+        } else {
+          wx.showToast({
+            title: res.data.data.message,
             icon: 'success',
             duration: 2000,
             mask: true,
           })
         }
-      })
-    }
+        that.onShow();
+      },
+      fail: function () {
+        wx.showToast({
+          title: '提现失败',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+        })
+      }
+    })
     
   },
   /**
@@ -291,5 +284,13 @@ Page({
    */
   onReachBottom: function () {
   
+  },
+  // 点击二维码放大
+  iconcode(){
+    console.log(this.data.qrcode)
+    wx.previewImage({
+      current: this.data.www+'this.data.qrcode', // 当前显示图片的http链接
+      urls: [this.data.www+this.data.qrcode] // 需要预览的图片http链接列表
+    })
   },
 })

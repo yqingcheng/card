@@ -11,7 +11,7 @@
   
   <view class="btn_login_img" wx:else>
     <button class="btn_login" data-userinfo="{{false}}" wx:if="{{userinfo}}"
-     formType="submit" bindtap="zhifu">制作我的名片(100元/年)</button>
+     formType="submit" bindtap="zhifu">制作我的名片(10元/年)</button>
 
     <button class="getUserInfo"  wx:if="{{!userinfo}}"
      bindtap="userInfoHandler"> 获取用户信息 </button> 
