@@ -1,0 +1,21 @@
+<!--pages/Withdrawals/Withdrawals.wxml-->
+<view class='withd'>提现明细</view>
+<view class='awals' wx:for="{{list}}">
+  <view class='awalsimg'>
+    <image class="perlistedimg" src="/image/20180119171828.jpg"></image>
+  </view>
+  <view class='awalslistq'>
+    <view style='color:#000;font-weight:600;'>{{item.type}}</view>
+    <view style='color:#ccc;'>{{item.created_at}}</view>    
+  </view>
+  <view class='awalslist'>
+    <view style='color:#000;font-weight:600;'>+{{item.amount}}</view>
+    <view style='color:#ccc;'>{{item.status}}</view>
+  </view>
+</view>
+
+
+
+
+
+

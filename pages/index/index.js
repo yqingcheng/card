@@ -61,9 +61,11 @@ Page({
           }
           wx.setStorageSync('userId', res.data.data.id + '')
           wx.getStorageSync('userId')
-          console.log(wx.getStorageSync('userId'))
+          
           wx.setStorageSync('time_remaining', res.data.data.time_remaining + '')
           wx.getStorageSync('time_remaining')
+          wx.setStorageSync('id', res.data.data.id + '')
+          wx.getStorageSync('id')
         }
       })
     }

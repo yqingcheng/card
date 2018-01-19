@@ -97,22 +97,21 @@ Page({
     })
   },
   depositsub: function (e) {
+    console.log(this.data.id)
    if(onoff){
      onoff = false
     var formData = e.detail.value
     var that = this
 
     wx.request({
-      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal/create',
+      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal?wechat_user_id=' + that.data.id,
       data: {
         openid: that.data.openid,
-        id: that.data.id,
         amount: that.data.arrtet,
       },
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        'content-type': 'application/json' // 默认值
       },
-      method: "POST",
       success: (res) => {
         onoff = true
         wx.showToast({

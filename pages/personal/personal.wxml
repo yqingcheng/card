@@ -33,6 +33,14 @@
     <view class="tit">使用期限</view> 
     <view class="conti">剩余{{list.time_remaining}}天</view>
   </view>
+
+  <view class="listfe"> 
+    <navigator url="/pages/Withdrawals/Withdrawals">
+        <image class="listfelist" src="/image/tixian.png"></image> 
+        <view class="tit">提现明细</view>
+    </navigator>
+  </view>
+
   <view class="listfe"> 
     <navigator url="/pages/distribution/distribution">
         <image class="listfelist" src="/image/10-13.jpg"></image> 
