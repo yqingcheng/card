@@ -22,7 +22,6 @@ Page({
   asdf(userInfo,ref) {
     //更新数据
     var ajax = (ref) => {
-      console.log(this)
       this.setData({
         userInfo: userInfo,
         userinfo: true
@@ -37,7 +36,6 @@ Page({
         country: userInfo.country,
         referrer: +ref
       };
-      console.log('传输的数据', data)
       wx.request({
         url: 'https://card.xiaoniren.cn/restapi/default/create',
         data: data,
@@ -46,7 +44,6 @@ Page({
         },
         method: "POST",
         success: (res) => {
-          console.log(res)
           var time_remaining = res.data.data.time_remaining
           var referrer = res.data.data.referrer
           var id = res.data.data.id
@@ -70,7 +67,6 @@ Page({
         }
       })
     }
-    console.log(ref)
     if (ref > 0) {
       console.log('大于0' + ref)
       ajax(ref)
@@ -83,9 +79,7 @@ Page({
   onLoad: function (option) {
     var that = this
     var userId = option.referrer
-    console.log(userId)
     var scene = decodeURIComponent(option.scene)
-    console.log(scene)
 
     var optionStr = JSON.stringify(option)
 
@@ -94,7 +88,6 @@ Page({
       success: function (res) {
         wx.getClipboardData({
           success: function (res) {
-            console.log(res.data) // data
           }
         })
       }
@@ -108,13 +101,10 @@ Page({
       userId = scene.split('=')[1]
     }
     if (userId && userId > 0){
-      console.log('分享id',userId)
-      console.log(that)
       that.setData({
         userId: userId
       })
     }else{
-      console.log(that)
     }
     console.log(this.data, "页面数据")
       //调用应用实例的方法获取全局数据
@@ -228,7 +218,6 @@ Page({
       }
     })
     var that = this
-    console.log(that)
   },
   onShow(){
 
@@ -267,7 +256,6 @@ Page({
     var that = this
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
     }
     return {
       title: '',
@@ -275,7 +263,6 @@ Page({
       imageUrl: that.data.www + that.data.qrcode,
       success: function (res) {
         // 转发成功
-        console.log('/pages/index/index?referrer=' + wx.getStorageSync('userId'))
       },
 
       fail: function (res) {

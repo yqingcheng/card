@@ -1,5 +1,6 @@
 // pages/personal/personal.js
 var app = getApp()
+var onoff = true
 Page({
   /**
    * 页面的初始数据
@@ -65,7 +66,6 @@ Page({
             withdraw_deposit: withdraw_deposit,
             time_remaining: res.data.data.time_remaining
           })
-          console.log(res)
         }
       })
     })
@@ -97,9 +97,10 @@ Page({
     })
   },
   depositsub: function (e) {
+   if(onoff){
+     onoff = false
     var formData = e.detail.value
     var that = this
-    console.log(this.data.arrtet, that.data.withdraw_deposit)
 
     wx.request({
       url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal/create',
@@ -112,7 +113,8 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: "POST",
-      success: function (res) {
+      success: (res) => {
+        onoff = true
         wx.showToast({
           title: '提现成功',
           icon: 'succes',
@@ -126,7 +128,6 @@ Page({
             id: that.data.id,
             amount: that.data.arrtet,
           })
-        console.log(res)
         if (res.data.success == true) {
           wx.showToast({
             title: '提现成功',
@@ -150,6 +151,7 @@ Page({
           })
         }
         that.onShow();
+
       },
       fail: function () {
         wx.showToast({
@@ -160,6 +162,7 @@ Page({
         })
       }
     })
+   }
     
   },
   /**
@@ -198,7 +201,6 @@ Page({
       imageUrl: that.data.www+that.data.qrcode,
       success: function (res) {
         // 转发成功
-        console.log('/pages/index/index?referrer=' + that.data.id)
       },
       
       fail: function (res) {
