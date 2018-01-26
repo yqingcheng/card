@@ -18,7 +18,8 @@ Page({
     gssearch: [],
     link_origin: app.globalData.link_origin,
     id: '',
-    nameList: []
+    nameList: [],
+    display_num:0,
   },
   // 取消收藏
   showitemm: function (e) {
@@ -34,7 +35,6 @@ Page({
       },
       method: "POST",
       success: function (res) {
-        console.log(res.data.data)
         if (res.data.success == true) {
           wx.showToast({
             title: '取消成功',
@@ -113,6 +113,15 @@ Page({
           search: sort(res.data.data.items),
           yeshu: aa,
         })
+        if (res.data.data.items.length == 0) {
+          this.setData({
+            display_num: 1
+          })
+        }else{
+          this.setData({
+            display_num: 0
+          })
+        }
       }
     })
   },
@@ -227,7 +236,6 @@ Page({
   onReachBottom: function () {
     var that = this
     page_index++;
-    console.log(page_index , this.data.yeshu)
     if (page_index <= this.data.yeshu) {
       console.log(1)
       wx.request({

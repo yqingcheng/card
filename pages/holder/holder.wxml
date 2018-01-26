@@ -34,6 +34,8 @@
     </view>
   </view>
 </view>  
+
+<view class="tishi {{display_num == 0?'display_no':'display_bl'}}">您没有收藏名片！</view>
 <!-- 公司 列表 -->
 <view class="cardse EnterpriseInfo " wx:for="{{gssearch}}" wx:if="{{item.is_collect !=0 ?true:false}}">
   <navigator url="/pages/firmminempdetails/firmminempdetails?id={{item.id}}&type=DeliveryInfo">

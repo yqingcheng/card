@@ -6,4 +6,4 @@
   </view>
   <view class="dealrmb">+{{item.amount}}</view>
 </view>
- <!-- <view class="dealcon">我是有底线的</view>  -->
+  <view class="dealcon {{display_num == 0?'display_no':'display_bl'}}">暂无明细!</view>  

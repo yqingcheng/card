@@ -32,3 +32,9 @@
   color: #666;
   font-size: 12px;
   }
+.display_no{
+  display: none;
+}
+.display_bl{
+  display: block;
+}

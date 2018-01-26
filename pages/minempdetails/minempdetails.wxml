@@ -1,7 +1,7 @@
 <import src="../info/info.wxml">
 </import>
 <import src='../infoImg/infoImg.wxml'></import>
-<template is="info" data='{{infoData: infoData, shoucang: shoucang,self:self,is_collect:is_collect}}' />
+<template is="info" data='{{infoData: infoData, shoucang: shoucang,self:self,is_collect:is_collect,display_num:display_num,display_n:display_n}}' />
  
  <view class="infoImg_wrap">
 

@@ -1,4 +1,17 @@
 <!--pages/distribution/distribution.wxml-->
+<view class="listfe"> 
+  <image class="listfelist" src="/image/1_10.jpg"></image>
+  <view class="tit">我的推荐人</view> 
+  <view class="conti">{{name.data}}</view>
+</view>
+<view class="listfe">
+  <navigator url="/pages/panel/panel">
+    <image class="listfelist" src="/image/trl.png"></image>
+    <view class="tit">我下线人数</view>
+    <view class="conti">{{list.referrers}} <text>人</text> </view>
+  </navigator>  
+</view>
+<view class="xian"></view>
 <view class="distribution">
   <view class="distributiontit">我的分销</view>
    <view class="distributiongui">
@@ -25,15 +38,4 @@ B再推荐C，C制作名片，B立即获得3元收益，A作为B的推荐人再�
 收益如何提现?
 获得推荐奖励后，自动放至可提现余额，用户可随时提现。</text>
   </view>  
-</view>
-<view class="xian"></view>
-<view class="listfe"> 
-  <image class="listfelist" src="/image/1_10.jpg"></image>
-  <view class="tit">我的推荐人</view> 
-  <view class="conti">{{name.data}}</view>
-</view>
-<view class="listfe">
-  <image class="listfelist" src="/image/trl.png"></image>
-  <view class="tit">我下线人数</view>
-  <view class="conti">{{list.referrers}} <text>人</text> </view>
 </view>

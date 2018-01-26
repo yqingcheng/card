@@ -1,0 +1,7 @@
+<!--pages/panel/panel.wxml-->
+<view class='list' wx:for="{{list}}" wx:key="{{in}}" data-index="{{index}}">
+  <view class="imgs"><image src="/image/trl.png"></image></view>
+  <view class="name">{{item.name}}</view>
+  <view class="data">{{item.created_at}}</view>  
+</view>
+<view class="tishi {{display_num == 0?'display_no':'display_bl'}}">分享您的名片会有下线哦！</view>

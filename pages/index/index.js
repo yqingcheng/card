@@ -26,8 +26,6 @@ Page({
         userInfo: userInfo,
         userinfo: true
       })
-      console.log(userInfo) 
-      console.log(+ref)
       const data = {
         openid: wx.getStorageSync('user').openid,
         nickname: userInfo.nickName,
@@ -70,10 +68,8 @@ Page({
       })
     }
     if (ref > 0) {
-      console.log('大于0' + ref)
       ajax(ref)
     } else {
-      console.log('小于0' + ref)
       ajax(0)
     }
   },  
@@ -96,10 +92,18 @@ Page({
     })
 
     // var jiexi = '{"scene":"referrer%3D521"}'
+    // { "scene":"r%3D78id%3D145t%3D1" }
     // //referrer=521
     // console.log(decodeURIComponent(JSON.parse(jiexi).scene).split('=')[1])
 
     if (scene !== 'undefined'){
+      // var arr = y.split('&')
+      // var obj = {}
+      // for (let i = 0; i < arr.length; i++) {
+      //   let a = arr[i].split('=')
+      //   obj[a[0]] = a[1]
+      // }
+      // console.log(obj)
       userId = scene.split('=')[1]
     }
     if (userId && userId > 0){
@@ -108,11 +112,9 @@ Page({
       })
     }else{
     }
-    console.log(this.data, "页面数据")
       //调用应用实例的方法获取全局数据
       app.getUserInfo((userInfo) => {
         // console.log(this)
-        console.log(this.data.userId)
         this.asdf(userInfo,this.data.userId)
       })
   },
@@ -225,7 +227,6 @@ Page({
 
     app.getUserInfo((userInfo) => {
       // console.log(this)
-      console.log(this.data.userId)
       this.asdf(userInfo, this.data.userId)
     })
   },
@@ -265,6 +266,7 @@ Page({
       imageUrl: that.data.www + that.data.qrcode,
       success: function (res) {
         // 转发成功
+        console.log('/pages/index/index?referrer=' + wx.getStorageSync('userId'))
       },
 
       fail: function (res) {

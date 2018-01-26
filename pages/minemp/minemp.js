@@ -21,7 +21,51 @@ Page({
     referrerid: undefined,
     com:sum.com,
     usersatus:false,
+    x1: 10,
+    y1: 10,
+    x2: 10,
+    y2: 100  
   },
+  kg: function (e) {
+    console.log(e.changedTouches[0])
+    var y = e.changedTouches[0].pageY
+    if (y < 100) {
+      this.setData({
+        x1: 10,
+        y1: 10,
+        x2: 10,
+        y2: 100
+      })
+    }
+    else {
+      this.setData({
+        x2: 10,
+        y2: 10,
+        x1: 10,
+        y1: 100
+      })
+    }
+  },
+  km: function (e) {
+    console.log(e.changedTouches[0])
+    var y = e.changedTouches[0].pageY
+    if (y > 100) {
+      this.setData({
+        x1: 10,
+        y1: 10,
+        x2: 10,
+        y2: 100
+      })
+    }
+    else {
+      this.setData({
+        x2: 10,
+        y2: 10,
+        x1: 10,
+        y1: 100
+      })
+    }
+  },  
   // 个人
   // showitem: function (e) {
   //   var id = e.currentTarget.dataset.index,
@@ -92,7 +136,6 @@ Page({
     }
   },
   onLoad: function (options) {
-    console.log(options)
     var that = this  
         wx.request({
           url: 'https://card.xiaoniren.cn/restapi/default/index',
@@ -114,7 +157,6 @@ Page({
             for (var i = 0; i < res.data.data.EnterpriseInfo.length; i++) {
               showArr1.push(1)
             }
-            console.log(res)
             that.setData({
               list: res.data.data.DeliveryInfo,
               listlength: listlength,
@@ -259,7 +301,6 @@ Page({
                 showArr: showArr
               })
               that.onLoad()
-              console.log(res)
             }
           })
         } else if (res.cancel) {
@@ -305,7 +346,6 @@ Page({
                 showArr1: showArr1
               })
               that.onLoad()
-              console.log(res)
             }
           })
         } else if (res.cancel) {

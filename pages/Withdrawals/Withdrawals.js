@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this)
   },
 
   /**
@@ -29,8 +30,8 @@ Page({
    */
   onShow: function () {
     wx.request({
-      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal?wechat_user_id=12',
-      //  + wx.getStorageSync('id')
+      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal?wechat_user_id='+ wx.getStorageSync('id'),
+      //  
       data: {
         openid: wx.getStorageSync('user').openid,
       },

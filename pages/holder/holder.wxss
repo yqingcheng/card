@@ -11,6 +11,18 @@ input{border: 1px solid #e9e9e9;height: 45px;border-radius: 10px;text-indent: 10
   margin-top: 20px;
   padding-bottom: 6px;
 }
+.tishi{
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 50px;
+}
+.display_no{
+  display: none;
+}
+.display_bl{
+  display: block;
+}
 .cardseimg{width: 30%;float: left;margin-right: 5%;margin-top: 7%;margin-left: 5%;}
 .cardseimg image{width: 100%;height: 100px;}
 .cardser{width: 60%;float: left;overflow: hidden;height: auto;margin-top: 7%;}

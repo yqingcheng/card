@@ -1,0 +1,46 @@
+/* pages/panel/panel.wxss */
+.list{
+  font-size: 14px;
+  color: #515151;
+  width: 100%;
+  float: left;
+  border-bottom:1px solid #b8b8b8; 
+  line-height: 50px;
+}
+.tishi{
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 50px;
+}
+.display_no{
+  display: none;
+}
+.display_bl{
+  display: block;
+}
+.list view{
+  float: left;
+}
+image{
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin: 10px 0 0 0;
+}
+.imgs{
+  margin: 0 4% 0 4%;
+}
+.list .data{
+  float: right;
+  margin: 0 4% 0 0;
+}
+.name{
+  width: 30%;
+  margin: 0 10px 0 10px;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

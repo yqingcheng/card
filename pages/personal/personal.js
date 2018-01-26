@@ -30,7 +30,6 @@ Page({
    */
   // 获取信息
   onLoad: function (option) {
-   console.log(1)
     var that = this    
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
@@ -97,7 +96,6 @@ Page({
     })
   },
   depositsub: function (e) {
-    console.log(this.data.id)
    if(onoff){
      onoff = false
     var formData = e.detail.value
@@ -200,6 +198,7 @@ Page({
       imageUrl: that.data.www+that.data.qrcode,
       success: function (res) {
         // 转发成功
+        console.log('/pages/index/index?referrer=' + that.data.id)
       },
       
       fail: function (res) {
@@ -288,7 +287,6 @@ Page({
   },
   // 点击二维码放大
   iconcode(){
-    console.log(this.data.qrcode)
     wx.previewImage({
       current: this.data.www+'this.data.qrcode', // 当前显示图片的http链接
       urls: [this.data.www+this.data.qrcode] // 需要预览的图片http链接列表

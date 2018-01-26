@@ -1,4 +1,15 @@
 <!--pages/minemp/minemp.wxml-->
+<!-- &name={{item.name}}&img={{item.head_portrait}}&position={{item.position}}&mobile={{item.mobile}}&company_name={{item.company_name}}&desc={{item.desc}} -->
+<view class="section">
+  <!-- <movable-area style="height: 200px;width: 200%;background: red;">  
+    <movable-view bindtouchend="kg" style="height: 50px; width: 150px; background: blue;" x="{{x1}}" y="{{y1}}" direction="all">  
+    <button bindtap="gg">客服哥哥</button>  
+    </movable-view>  
+     <movable-view bindtouchend="km" style="height: 50px; width: 150px; background: green;" x="{{x2}}" y="{{y2}}" direction="all">  
+    <button bindtap="mm">客服妹妹</button>  
+    </movable-view>  
+  </movable-area>    -->
+</view>
 <!-- 海报 -->
 <view class="visiting" bindtap="poster">
     <image class="visiting_img" mode="widthFix" src="/image/1205__02.jpg"></image>

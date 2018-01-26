@@ -6,6 +6,7 @@ Page({
    */
   data: {
     listl:[],
+    display_num:0,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -24,6 +25,16 @@ Page({
         that.setData({
           listl: res.data.data.items,
         })
+        if (res.data.data.items.length==0){
+          that.setData({
+            display_num:1
+          })
+        }else{
+          that.setData({
+            display_num: 0
+          })
+        }
+        
       }
     })
 

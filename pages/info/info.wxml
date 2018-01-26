@@ -1,8 +1,9 @@
 <template name="info">
     <view class='info_wrap'>
-        <image style="width:100%;" src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.bg_img}}" mode="widthFix" class="infoBg"></image>
-        <!-- 信息展示区 -->
-        <view class="info_msg">
+         <image style="width:100%;" src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.bg_img}}" mode="widthFix" class="infoBg"></image> 
+        <view class="{{display_num == 0?'display_no':'display_bl'}}" style='background:#fff;width:100%;height:500px;position:relative;'>
+        <!-- <canvas style='height:300px;' canvas-id="firstCanvas" binderror="canvasIdErrorCallback"></canvas>         -->
+           <view class="info_msg" style="top:80px;z-index:100">
             <view style="background-image: url({{infoData.DeliveryInfo.head_portrait}})" class="info_por"></view>
             <view class="info_text_name c_padding">
                 {{infoData.DeliveryInfo.name}}
@@ -48,12 +49,55 @@
                 </view>
             </view>
         </view>
-        <!-- <view class="info_text">
-            <view class="info_text_name">
-                 {{infoData.DeliveryInfo.name}}
+        </view>
+        <!-- 信息展示区 -->
+        <view class="info_msg">
+        <image bindtap="magnify" data-src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.qrcode}}" class="{{display_n == 0?'display_nno':'display_bnl'}}" style="width:80px;height:80px;position:absolute;top:3px;right:5%;" src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.qrcode}}"></image>
+            <view style="background-image: url({{infoData.DeliveryInfo.head_portrait}})" class="info_por"></view>
+            <view class="info_text_name c_padding">
+                {{infoData.DeliveryInfo.name}}
             </view>
-            
-            
-        </view> -->
+            <view class="info_text c_padding">
+                <view class="info_jianjie">
+                   {{infoData.DeliveryInfo.desc}}
+                    <view class="" wx:if="{{!self}}">
+                      <view wx:if="{{is_collect}}">
+                          已收藏
+                      </view>
+                      <view wx:if="{{!is_collect}}" bindtap="shoucang" data-type="DeliveryInfo" data-index="{{infoData.DeliveryInfo.id}}">
+                          收藏+
+                      </view> 
+                    </view>
+                </view>
+            </view>
+
+            <view class="infoData c_padding">
+                <view bindtap="opentel" data-name="{{infoData.DeliveryInfo.name}}" data-tel="{{infoData.DeliveryInfo.mobile}}" class="view">
+                    <view class="info_left">电话:</view> <view class="info_right">{{infoData.DeliveryInfo.mobile}}<text class="iconfont icon-dianhua tel"></text></view>
+                </view>
+                <view bindtap="wechat" wx:if="{{infoData.DeliveryInfo.wechat}}" class="view">
+                    <view class="info_left">微信:</view> <view class="info_right"> <text style="color:#000;" selectable="true"> {{infoData.DeliveryInfo.wechat}}</text> </view>
+                </view>
+                <view wx:if="{{infoData.DeliveryInfo.qq}}" class="view">
+                    <view class="info_left">QQ:</view> <view class="info_right">{{infoData.DeliveryInfo.qq}}</view>
+                </view>
+                <view wx:if="{{infoData.DeliveryInfo.email}}" class="view">
+                    <view class="info_left">邮箱:</view> <view class="info_right">{{infoData.DeliveryInfo.email}}</view>
+                </view>
+                <view class="view">
+                    <view class="info_left">公司:</view> <view class="info_right">{{infoData.DeliveryInfo.company_name}}</view>
+                </view>
+                <view class="view">
+                    <view class="info_left">地址:</view> <view class="info_right">{{infoData.DeliveryInfo.company_address}}</view>
+                </view>
+                <view wx:if="{{infoData.DeliveryInfo.company_business}}" class="view">
+                    <view class="info_left">行业:</view> <view class="info_right">{{infoData.DeliveryInfo.company_business}}</view>
+                </view>
+                <view class="view">
+                    <view class="info_left">职位:</view> <view class="info_right">{{infoData.DeliveryInfo.position}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- 信息展示区 -->
     </view>
 </template>

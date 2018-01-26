@@ -1,34 +1,43 @@
-// pages/group/group.js
+// pages/panel/panel.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    group:{},
+    link_origin: app.globalData.link_origin,
+    list:[],
+    display_num:0,
   },
-  iconcode(e) {
-    wx.previewImage({
-      current: e.currentTarget.dataset.src, // 当前显示图片的http链接
-      urls: [e.currentTarget.dataset.src] // 需要预览的图片http链接列表
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that=this
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
-      url: 'https://card.xiaoniren.cn/restapi/default/user-communication',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+      url: that.data.link_origin + '/restapi/default/get-referrer-list',
+      data: {
+        user_id: wx.getStorageSync('id')
+        // wx.getStorageSync('id')
       },
-      method: "POST",
-      success:function(res){
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
         that.setData({
-          group: res.data.data,
+          list: res.data.data,
         })
-        console.log(res)
+        if(that.data.list.length==0){
+          that.setData({
+            display_num:1
+          })
+        }
+        wx.hideLoading()
       }
     })
   },
@@ -79,29 +88,26 @@ Page({
 * 用户点击右上角分享
 */
   onShareAppMessage: function (res) {
-  //   var onOff = false;
-  //   onOff = wx.getStorageSync('auth')
-  //   if (!onOff) {
-  //     wx.showModal({
-  //       title: '温馨提示',
-  //       content: '请先授权',
-  //       success: function (res) {
-  //         if (res.confirm) {
-  //           console.log('用户点击确定')
-  //           wx.redirectTo({
-  //             url: '../index/index'
-  //           })
-  //         } else if (res.cancel) {
-  //           console.log('用户点击取消')
-  //         }
-  //       }
-  //     })
+    // var onOff = false;
+    // onOff = wx.getStorageSync('auth')
+    // if (!onOff) {
+    //   wx.showModal({
+    //     title: '温馨提示',
+    //     content: '请先授权',
+    //     success: function (res) {
+    //       if (res.confirm) {
+    //         console.log('用户点击确定')
+    //         wx.redirectTo({
+    //           url: '../index/index'
+    //         })
+    //       } else if (res.cancel) {
+    //         console.log('用户点击取消')
+    //       }
+    //     }
+    //   })
 
-      
-  //   }
-  //   if (!onOff){
-  //   return false;
-  // }
+    //   return false;
+    // }
 
     var that = this
     if (res.from === 'button') {

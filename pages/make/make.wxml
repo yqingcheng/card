@@ -56,13 +56,13 @@
         <image class="pe_img" style="width:100px;height:100px;margin-top:10px;" data-src="{{bg_img}}" bindtap="updateBg" src="{{bg_img.length==0?'/image/_03.jpg':('https://card.xiaoniren.cn'+bg_img)}}"></image>
       </view>
       <!-- 1 -->
-    <view class="" wx:for="{{introDuce}}">
+    <view class="" wx:for="{{introDuce}}" wx:key="{{in}}">
       <view class="personagec"></view>
       <view class="personagegs">
         <view class="personage_gs"><text>标题</text><input placeholder-style="color:#d0d0d0;" data-index="{{index}}" bindinput="EventHandle" type="text" value="{{title}}" name="title" placeholder="{{item.title}}" /></view>
       </view>
       
-      <view class="Delimg" wx:for="{{item.img}}" wx:for-item="images" wx:for-index="asd">
+      <view class="Delimg" wx:for="{{item.img}}" wx:for-item="images" wx:for-index="asd" wx:key="{{ind}}">
         <image bindtap="imgdel" class="delimg" data-id="{{images.id}}" data-inx="{{index}}" data-index="{{asd}}" src="/image/del.png"></image>
         <image class="img" data-id="{{images.id}}" data-src="{{images.url}}" src="https://card.xiaoniren.cn{{images.url}}" style="width: 80%;height:100px;" />
       </view>

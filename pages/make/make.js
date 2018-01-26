@@ -658,8 +658,6 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths)
-        console.log(that.data.link_origin)
         // return;
         console.log(res)
         wx.uploadFile({
@@ -689,7 +687,6 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(res)
         wx.uploadFile({
           url: that.data.link_origin + '/restapi/delivery-info/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
@@ -851,7 +848,6 @@ return arr;
     var that = this
 
     if (this.data.d_id){
-      console.log(that.data.text3)
       var imgsdata = that.data.introDuce
       imgsdata.forEach((item) => {
         var dataSort = [];
@@ -871,7 +867,6 @@ return arr;
         },
         method: "POST",
         success:function(res){
-          console.log(res)
         }
       })
       if (!this.data.text3) {
@@ -999,7 +994,6 @@ return arr;
       })
       item.img = dataSort;
     })
-    console.log(imgsdata)
     wx.request({
       url: that.data.link_origin+'/restapi/delivery-info/create',
       data: {
@@ -1096,7 +1090,6 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(res)
         wx.uploadFile({
           url: that.data.link_origin+'/restapi/enterprise-info/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
@@ -1123,14 +1116,12 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(res)
         wx.uploadFile({
           url: that.data.link_origin+'/restapi/enterprise-info/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {},
           success: function (res) {
-            console.log(JSON.parse(res.data))
             var url = JSON.parse(res.data).data.file.url
             that.setData({
               licence: true,
@@ -1151,7 +1142,6 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(res)
         wx.uploadFile({
           url: that.data.link_origin+'/restapi/enterprise-info/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
@@ -1179,14 +1169,12 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(res)
         wx.uploadFile({
           url: that.data.link_origin+'/restapi/enterprise-info/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {},
           success: function (res) {
-            console.log(JSON.parse(res.data))
             var url = JSON.parse(res.data).data.file.url
             that.setData({
               licence: true,
@@ -1207,7 +1195,6 @@ return arr;
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(res)
         wx.uploadFile({
           url: that.data.link_origin+'/restapi/enterprise-info/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
@@ -1221,7 +1208,6 @@ return arr;
             that.setData({
               image: that.data.image,
             })
-            console.log(that.data.image, str)
           }
         })
       }

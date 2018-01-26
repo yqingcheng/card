@@ -23,6 +23,17 @@ Page({
     userid:0,
     typea:'',
     uid:0,
+    head_portraitH:'',
+    descTet:'',
+    display_num:0,
+    display_n:0,
+  },
+  //放大
+  magnify(e){
+    wx.previewImage({
+      current: 'e.currentTarget.dataset.src', // 当前显示图片的http链接
+      urls: [e.currentTarget.dataset.src] // 需要预览的图片http链接列表
+    })
   },
   // 收藏
   shoucang(e){
@@ -122,7 +133,7 @@ Page({
   // wechat(){
   //   wx.previewImage({
   //     current: 'https://card.xiaoniren.cn/upload/deliveryinfo/2018/0115/15159976704467.jpg', // 当前显示图片的http链接
-  //     urls: ['https://card.xiaoniren.cn/upload/deliveryinfo/2018/0115/15159976704467.jpg'] // 需要预览的图片http链接列表
+  //     urls: ['htt(ps://card.xiaoniren.cn/upload/deliveryinfo/2018/0115/15159976704467.jpg'] // 需要预览的图片http链接列表
   //   })
   // },
   /**
@@ -148,17 +159,35 @@ Page({
     return arr;
   },
   onLoad: function (options) {
-    
-    console.log(options, 'onLoad')
-    console.log(options.id)
-    console.log(options.type)
-
     var that = this
-    that.setData({
-      userid:options.id,
-      typea:options.type,
-      uid: options.referrer
-    })
+    var obj = {}
+    var arr = []
+   // var optionStr = decodeURIComponent("r%3D78%26i%3D145%26t%3D1")
+    if (options.scene){
+      var scene = decodeURIComponent(options.scene)
+      arr = scene.split('&')
+      for (let i = 0; i < arr.length; i++) {
+        let a = arr[i].split('=')
+        obj[a[0]] = a[1]
+      }
+    }
+    if (obj.i && obj.r && obj.t){
+      if (obj.t == 1){
+        var types = 'DeliveryInfo'
+      }
+      that.setData({
+        userid: obj.i,
+        typea: types,
+        uid: obj.r
+      })
+    }else{
+      that.setData({
+        userid: options.id,
+        typea: options.type,
+        uid: options.referrer
+      })
+    }
+      
     wx.showLoading({
       title: '加载中',
     })
@@ -167,13 +196,23 @@ Page({
     })
     if (options.self){
       this.setData({
-        self:true
+        self:true,
+        display_n:1
+      })
+    }
+    if(this.data.userid){
+      this.setData({
+        id: this.data.userid
+      })
+    }else{
+      this.setData({
+        id: options.id
       })
     }
     wx.request({
       url: that.data.link_origin + '/restapi/default/view',
       data: {
-        id: options.id,
+        id: this.data.id,
         type: 'DeliveryInfo',
       },
       header: {
@@ -202,7 +241,9 @@ Page({
 
         that.setData({
           id: options.id,
-          infoData:infoData
+          infoData:infoData,
+          descTet:res.data.data.DeliveryInfo.desc,
+          head_portraitH: res.data.data.DeliveryInfo.head_portrait,
         })
         wx.hideLoading()
       }
@@ -229,7 +270,6 @@ Page({
         },
         method: "POST",
         success: function (res) {
-          console.log(res.data.data.id)
           that.setData({
             time_remaining: res.data.data.time_remaining,
             uid: res.data.data.id
@@ -238,7 +278,10 @@ Page({
 
       })
     })
+
+   
   },
+
   // 点击制作
   zhifu:function(){
       wx.navigateTo({
@@ -249,17 +292,52 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  // canvasIdErrorCallback: function (e) {
+  //   console.error(e.detail.errMsg)
+  // },
   onReady: function () {
-  
+    // var that=this 
+    // var context = wx.createCanvasContext('firstCanvas')
+    // context.setStrokeStyle("#eeeeee")
+    // context.setLineWidth(1)
+    // context.rect(0, 0, 300, 500)
+    // context.stroke()
+    // context.setFillStyle('pink')
+    // context.setFontSize(24)
+    // context.fillText('一次点击，终身受益', 20, 30)
+    // context.fillText(that.data.name, 120, 80)
+    // context.fillText(that.data.position, 200, 80)
+    // context.drawImage(that.data.imgs, 10, 60, 100, 100)
+    // context.drawImage('/image/tel.png', 120, 100, 15, 15)
+    // context.fillText(that.data.mobile, 140, 115)
+    // context.drawImage('/image/dizhi.png', 120, 130, 15, 15)
+    // context.fillText(that.data.company_name, 140, 145)
+    // context.fillText(that.data.desc, 10, 190)
+    // context.draw()
+    // wx.canvasToTempFilePath({
+    //   x: 0,
+    //   y: 0,
+    //   width: 500,
+    //   height: 500,
+    //   destWidth: 300,
+    //   destHeight: 225,
+    //   canvasId: 'firstCanvas',
+    //   success: (res) => {
+    //     this.setData({
+    //       aa: res.tempFilePath
+    //     })
+    //     console.log(res.tempFilePath)
+    //   }
+    // }) 
   },
-
+  
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
   
   },
-
+  
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -287,26 +365,39 @@ Page({
   onReachBottom: function () {
   
   },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    console.log(this.data.userid)
+   var that=this
+   console.log(that.data.head_portraitH)
+   that.setData({
+     display_num:1
+   })
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
-    return {
-      title: '小泥人电子智能商务共享名片制作',
-      path: '/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea +"&referrer="+this.data.uid,
-      success: (res) => {
-        // 转发成功
-        console.log('/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea + "&referrer=" + this.data.uid)
-      },
-      fail: function (res) {
-        // 转发失败
+    if (that.data.display_num==1){
+      return {
+        title: that.data.descTet,
+        imageUrl: that.data.head_portraitH,
+        path: '/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea + "&referrer=" + this.data.uid,
+        success: (res) => {
+          // 转发成功
+          that.setData({
+            display_num: 0
+          })
+          console.log('/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea + "&referrer=" + this.data.uid)
+        },
+        fail: function (res) {
+          that.setData({
+            display_num: 0
+          })
+          // 转发失败
+        }
       }
     }
+   
   }
 })
