@@ -742,7 +742,6 @@ return arr;
                 mask: true
               })
             }
-            console.log(res.data)
           },
           fail:function(res){
             wx.showToast({
@@ -1023,7 +1022,6 @@ return arr;
       },
       method: "POST",
       success: function (res) {
-        console.log(res.data)
         wx.showToast({
           title: '提交成功',
           icon: 'succes',
@@ -1416,7 +1414,6 @@ return arr;
         },
         method: "POST",
         success: function (res) {
-          console.log(res.data)
           wx.showToast({
             title: '提交成功',
             icon: 'succes',

@@ -40,7 +40,6 @@ function sort(x){
     }
   }
   var itemAll = s
-  console.log(itemAll)
   for (let i = 0; i < list.length; i++) {
     for (let j = 0; j < itemAll.length; j++) {
       let nameUpperCase = pinying.makePy(itemAll[j].name.substr(0, 1))[0]

@@ -102,14 +102,16 @@ Page({
     var that = this
 
     wx.request({
-      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal?wechat_user_id=' + that.data.id,
+      url: 'https://card.xiaoniren.cn/restapi/balance-withdrawal/create',
       data: {
+        id: that.data.id,
         openid: that.data.openid,
         amount: that.data.arrtet,
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        "Content-Type": "application/x-www-form-urlencoded"
       },
+      method: "POST",
       success: (res) => {
         onoff = true
         wx.showToast({

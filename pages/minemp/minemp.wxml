@@ -15,7 +15,7 @@
     <image class="visiting_img" mode="widthFix" src="/image/1205__02.jpg"></image>
 </view>
 <!-- 列表 -->
-<view class="cardse" wx:for="{{list}}">
+<view class="cardse" wx:for="{{list}}" wx:key="{{l}}">
   <navigator url="/pages/minempdetails/minempdetails?id={{item.id}}&type=DeliveryInfo&self=true">
     <view class="cardseimg"><image src="{{item.head_portrait}}"></image></view>
     <view class="cardser">
@@ -41,13 +41,13 @@
     </view>
      <view data-index="{{item.id}}" bindtap="sharelist" class="zhaunfalist {{open=='display_show'}}">
       <image class="share" src="/image/fenxiang.png"></image> 分享
-      <button data-img="{{item.head_portrait}}" data-name="{{item.name}}" data-id="{{item.id}}" data-type="DeliveryInfo"  open-type="share"></button>
+      <button data-img="{{item.head_portrait}}" data-desc="{{item.desc}}" data-name="{{item.name}}" data-id="{{item.id}}" data-type="DeliveryInfo"  open-type="share"></button>
     </view>
   </view>
 
 </view>
 <!-- 公司 列表 -->
-<view class="cardse EnterpriseInfo " wx:for="{{EnterpriseInfo}}">
+<view class="cardse EnterpriseInfo " wx:for="{{EnterpriseInfo}}" wx:key="{{e}}">
   <navigator url="/pages/firmminempdetails/firmminempdetails?id={{item.id}}&type=DeliveryInfo">
     <view class="cardseimg"><image src="http://card.xiaoniren.cn{{item.logo}}"></image></view>
     <view class="cardser">

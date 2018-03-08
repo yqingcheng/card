@@ -25,6 +25,8 @@ Page({
     uid:0,
     head_portraitH:'',
     descTet:'',
+    nameTct:'',
+    mobileTct:'',
     display_num:0,
     display_n:0,
   },
@@ -244,6 +246,8 @@ Page({
           infoData:infoData,
           descTet:res.data.data.DeliveryInfo.desc,
           head_portraitH: res.data.data.DeliveryInfo.head_portrait,
+          nameTct: res.data.data.DeliveryInfo.name,
+          mobileTct: res.data.data.DeliveryInfo.mobile
         })
         wx.hideLoading()
       }
@@ -370,18 +374,18 @@ Page({
    */
   onShareAppMessage: function (res) {
    var that=this
-   console.log(that.data.head_portraitH)
+   console.log(that.data.nameTct)
    that.setData({
-     display_num:1
+     display_num:0
    })
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
-    if (that.data.display_num==1){
+    if (that.data.display_num==0){
       return {
-        title: that.data.descTet,
-        imageUrl: that.data.head_portraitH,
+        title: that.data.nameTct + '     ' + that.data.descTet,
+        // imageUrl: that.data.head_portraitH,
         path: '/pages/minempdetails/minempdetails?id=' + this.data.userid + "&type=" + this.data.typea + "&referrer=" + this.data.uid,
         success: (res) => {
           // 转发成功

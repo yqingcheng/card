@@ -52,7 +52,7 @@
         </view>
         <!-- 信息展示区 -->
         <view class="info_msg">
-        <image bindtap="magnify" data-src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.qrcode}}" class="{{display_n == 0?'display_nno':'display_bnl'}}" style="width:80px;height:80px;position:absolute;top:3px;right:5%;" src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.qrcode}}"></image>
+        <image bindtap="magnify" data-src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.qrcode}}" class="{{display_n == 0?'display_nno':'display_bnl'}}" style="width:80px;height:80px;position:absolute;top:0px;right:5%;" src="https://card.xiaoniren.cn{{infoData.DeliveryInfo.qrcode}}"></image>
             <view style="background-image: url({{infoData.DeliveryInfo.head_portrait}})" class="info_por"></view>
             <view class="info_text_name c_padding">
                 {{infoData.DeliveryInfo.name}}

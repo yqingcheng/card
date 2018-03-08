@@ -1,6 +1,5 @@
 // pages/cardcase/cardcase.js
 var app = getApp()
-var page_index = 1;
 var index;
 function initSubMenuDisplay() {
   return ['hidden', 'hidden', 'hidden'];
@@ -26,6 +25,7 @@ Page({
     user_id:'',
     is_c:'',
     time_remaining:'0',
+    page_index:1
   },
   //切换显示隐藏 添加移除class
   tapMainMenu: function (e) { // 获取当前显示的一级菜单标识
@@ -170,11 +170,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     
+    
+    // 个人
+    wx.request({
+      url: 'https://card.xiaoniren.cn/restapi/delivery-info-search/index',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data: {
+        user_id: wx.getStorageSync('userId')
+      },
+      success: function (res) {
+        
+        var a = res.data.data._meta.totalCount, b = res.data.data._meta.perPage
+        var aa = parseInt(a / b) + (a % b == 0 ? 0 : 1)
+        var search = []
+        var user_id = ""
+        for (var i = 0; i < res.data.data.items.length; i++) {
+          user_id += res.data.data.items[i].user_id + ','
+        }
+        wx.setStorageSync('morePreson', res.data.data.items);
+
+        that.setData({
+          search: res.data.data.items,
+          yeshu: aa,
+          user_id: user_id
+        })
+      }
+    })
+    console.log(that.data)
   },
-  onHide: function () {
-    page_index = 1
-  },
+ 
   
   //搜搜
   searchmp:function(e){
@@ -229,34 +257,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this
-    // 个人
-    wx.request({
-      url: 'https://card.xiaoniren.cn/restapi/delivery-info-search/index',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      data: {
-        user_id: wx.getStorageSync('userId')
-      },
-      success: function (res) {
-        var a = res.data.data._meta.totalCount, b = res.data.data._meta.perPage
-        var aa = parseInt(a / b) + (a % b == 0 ? 0 : 1)
-        var search = []
-        var user_id = ""
-        for (var i = 0; i < res.data.data.items.length; i++) {
-          user_id += res.data.data.items[i].user_id + ','
-        }
-        wx.setStorageSync('morePreson', res.data.data.items);
-
-        that.setData({
-          search: res.data.data.items,
-          yeshu: aa,
-          user_id: user_id
-        })
-        console.log(res)
-      }
-    })
+    var that=this
+    console.log(that.data)
       // 企业
       // wx.request({
       //   url: 'https://card.xiaoniren.cn/restapi/enterprise-info-search/index',
@@ -282,8 +284,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    page_index = 1
-    console.log(12345)
+   // page_index = 1
     wx.removeStorage({
       key: 'morePreson'
     })
@@ -309,11 +310,17 @@ Page({
   onReachBottom: function () {
     // 个人
     var that = this
-    page_index++;
+    this.data.page_index = this.data.page_index + 1;
+   
+    
+    that.setData({
+      page_index: this.data.page_index
+    })
+    console.log(this.data.page_index)
     wx.showLoading({
       title: '加载中',
     })
-    if (page_index <= this.data.yeshu) {
+    if (this.data.page_index <= this.data.yeshu) {
       wx.request({
         url: 'https://card.xiaoniren.cn/restapi/delivery-info-search/index',
         header: {
@@ -321,7 +328,7 @@ Page({
         },
         data: {
           user_id: wx.getStorageSync('userId'),
-          page: page_index
+          page: this.data.page_index
         },
         success: function (res) {
           var a = res.data.data._meta.totalCount, b = res.data.data._meta.perPage
@@ -343,7 +350,7 @@ Page({
     }else{
       wx.hideLoading()
     }
-   
+    console.log(that.data)
   },
 
   /**
